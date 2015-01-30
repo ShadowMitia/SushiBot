@@ -9,6 +9,6 @@ Créer une mini-IA pour jour à [Sushi Go Round](http://www.miniclip.com/games/s
 Equipe:
 
 Dimitri Belopopsky
-Sofian Adjiri
-Antoine Dolane
+Sofiane Adjiri
+Antoine Dolant
 Raphaël Cohen

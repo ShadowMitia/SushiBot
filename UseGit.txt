@@ -1,0 +1,7 @@
+Hello les cocos alors pour tester et aussi pour ne pas oublier, voila qq commandes git : (corrigez ou rajoutez si vous en savez plus ;) )
+- creation depot :
+  Se positionner dans le repertoire voulu et taper $ git init
+-deposer un fichier :
+  despoer le fichier dans le dépot suivi de $git add <fileName>
+  	     	     	     	   	    $git commit -m "message"
+					    $git push 

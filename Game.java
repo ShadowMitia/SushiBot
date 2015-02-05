@@ -49,7 +49,7 @@ public class Game {
 			img = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 		}catch (Exception e){} ;
 
-		if (img==null) throw new RuntimeException("pas d'image");
+		if (img==null) throw new RuntimeException("Pas d'image");
 		return img.getSubimage(img.getWidth()/8,img.getHeight()/12,img.getWidth()-2*img.getWidth()/8,img.getHeight()-img.getHeight()/12);
 		
 	}
@@ -59,19 +59,15 @@ public class Game {
 	 */
 	public void createScreenImage (BufferedImage image){
 		try {
-			ImageIO.write(image, "png", new File("/Users/sofiane/desktop/screenshot.png"));
+			ImageIO.write(image, "png", new File("screenshot.png"));
 		} catch (IOException e) {
 		}
 	}
+
+	public static void main(String[] args){
+		Game g = new Game("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
+		BufferedImage img = g.getScreen(12000);
+		g.createScreenImage(img);	
+	}
 	
 }
-
-
-
-
-/////////////////////////////////
-// pour tester cette classe    //////////////////////////////////////////////////////
-//Game g = new Game("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");//
-//BufferedImage img = g.getScreen(12000);////////////////////////////////////////////
-//g.createScreenImage(img);				 //
-///////////////////////////////////////////

@@ -41,8 +41,10 @@ public class Game {
 	/*methode qui prend un screen apres x temps
 	 * renvoit un screen deja cadré sur le jeu  
 	 */
-	public BufferedImage getScreen(int x){
-		BufferedImage img	 = null ; 
+	public BufferedImage getScreen(int x)throws Exception {
+		BufferedImage img	 = null ;
+		Robot bot = new Robot();
+		bot.mouseMove(0,0);
 
 		try{
 			Thread.sleep(x);	
@@ -64,7 +66,7 @@ public class Game {
 		}
 	}
 
-	public static void main(String[] args){
+	public static void main(String[] args)throws Exception {
 		Game g = new Game("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
 		BufferedImage img = g.getScreen(12000);
 		g.createScreenImage(img);	

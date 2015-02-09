@@ -11,98 +11,86 @@ import java.io.IOException;
 
 public class ScreenCaptureRectangle {
 
-    Rectangle captureRect;
-     public BufferedImage screenCopy ;
+	Rectangle captureRect;
+	public BufferedImage screenCopy ;
 
-    ScreenCaptureRectangle(final BufferedImage screen) {
-        screenCopy=  new BufferedImage(screen.getWidth(),screen.getHeight(), screen.getType());//init du  panel 
-        final JLabel screenLabel = new JLabel(new ImageIcon(screenCopy));// le screen dans le panel 
-        
-        // cette partie la n'est que le panel avec son bouton et tout le tralala 
-        JScrollPane screenScroll = new JScrollPane(screenLabel);
+	ScreenCaptureRectangle(final BufferedImage screen) {
+		screenCopy=  new BufferedImage(screen.getWidth(),screen.getHeight(), screen.getType());//init du  panel 
+		final JLabel screenLabel = new JLabel(new ImageIcon(screenCopy));// le screen dans le panel 
 
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.add(screenScroll, BorderLayout.CENTER);
+		// cette partie la n'est que le panel avec son bouton et tout le tralala 
+		JScrollPane screenScroll = new JScrollPane(screenLabel);
 
-        final JLabel selectionLabel = new JLabel(
-                "Séléctionnez ce que vous voulez couper");
-        panel.add(selectionLabel, BorderLayout.SOUTH);
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(screenScroll, BorderLayout.CENTER);
 
-        repaint(screen, screenCopy);
-        screenLabel.repaint();
-        
-        
-        //till here 
+		final JLabel selectionLabel = new JLabel(
+				"Séléctionnez ce que vous voulez couper");
+		panel.add(selectionLabel, BorderLayout.SOUTH);
 
-        screenLabel.addMouseMotionListener(new MouseMotionAdapter() {
+		repaint(screen, screenCopy);
+		screenLabel.repaint();
 
-            Point start = new Point();
 
-            @Override
-            public void mouseMoved(MouseEvent me) {
-                start = me.getPoint();
-                repaint(screen, screenCopy);
-                selectionLabel.setText("Start Point: " + start);
-                screenLabel.repaint();
-            }
+		//till here 
 
-            @Override
-            public void mouseDragged(MouseEvent me) {
-                Point end = me.getPoint();
-                captureRect = new Rectangle(start,
-                        new Dimension(end.x-start.x, end.y-start.y));
-                repaint(screen, screenCopy);
-                screenLabel.repaint();
-                selectionLabel.setText("Rectangle: " + captureRect);
-            }
-        });
+		screenLabel.addMouseMotionListener(new MouseMotionAdapter() {
 
-        JOptionPane.showMessageDialog(null, panel);
-        //retour du rectangle selectionné 
-        System.out.println("Rectangle of interest: " + captureRect);
-        ///////phase d'enregistrement 
-        try {
-			BufferedImage sortie = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-			
-			ImageIO.write(sortie.getSubimage(getBeginX0(), getBeginX1(), getNewWidth(), getNewHeight()) , "png", new File("/Users/sofiane/desktop/screenshot9.png"));
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Point start = new Point();
+
+			@Override
+			public void mouseMoved(MouseEvent me) {
+				start = me.getPoint();
+				repaint(screen, screenCopy);
+				selectionLabel.setText("Start Point: " + start);
+				screenLabel.repaint();
+			}
+
+			@Override
+			public void mouseDragged(MouseEvent me) {
+				Point end = me.getPoint();
+				captureRect = new Rectangle(start,
+						new Dimension(end.x-start.x, end.y-start.y));
+				repaint(screen, screenCopy);
+				screenLabel.repaint();
+				selectionLabel.setText("Rectangle: " + captureRect);
+			}
+		});
+
+		JOptionPane.showMessageDialog(null, panel);
+		//retour du rectangle selectionné 
+		System.out.println("Rectangle of interest: " + captureRect);
+		///////phase d'enregistrement 
+		try {
+			ImageIO.write(screen.getSubimage(this.captureRect.x, this.captureRect.y, this.captureRect.width, this.captureRect.height) , "png", new File("/Users/sofiane/desktop/screenshot9.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
-    
-    
-    //servent pas à grand chose je ne les utilse que sur l'enregistrement de l'image 
-    public int getBeginX0 () { return this.captureRect.x ;}
-    public int getBeginX1() { return this.captureRect.y;}
-    public int getNewHeight() {return this.captureRect.height;}
-    public int getNewWidth(){ return this.captureRect.width;}
-    
+	}
 
-    public void repaint(BufferedImage orig, BufferedImage copy) {
-    	Graphics2D g = copy.createGraphics();
-    	g.drawImage(orig,0,0, null);
-    	if (captureRect!=null) {
-    		g.setColor(Color.RED);
-    		g.draw(captureRect);
-    		g.setColor(new Color(255,255,255,150));
-    		g.fill(captureRect);
-    	}
-    	g.dispose();
-    }
+	public void repaint(BufferedImage orig, BufferedImage copy) {
+		// pour dessiner sur le panel on doit passer par un graphics
+		Graphics2D g = copy.createGraphics();
+		g.drawImage(orig,0,0, null);
+		if (captureRect!=null) {
+			g.setColor(Color.RED);
+			g.draw(captureRect);
+			g.setColor(new Color(255,255,255,150));
+			g.fill(captureRect);
+		}
+		g.dispose();
+	}
 
-    public static void main(String[] args) throws Exception {
-        Robot robot = new Robot();
-        Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
-        BufferedImage game = g.getScreen(10000);
+	public static void main(String[] args) throws Exception {
+		Robot robot = new Robot();
+		Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
+		BufferedImage game = g.getScreen(10000);
 
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new ScreenCaptureRectangle(game);
-            }
-        });
-    }
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				new ScreenCaptureRectangle(game);
+			}
+		});
+	}
 }

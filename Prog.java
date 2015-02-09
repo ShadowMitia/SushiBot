@@ -7,6 +7,6 @@ import java.net.URISyntaxException;
 public class Prog {
 	public static void main(String[] args) throws Exception {
 		
-		ToolBox toolbox = new ToolBox(350, 150);
+		ToolBox toolbox = new ToolBox(400, 150);
 	}
 }

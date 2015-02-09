@@ -64,7 +64,7 @@ public class ScreenCaptureRectangle {
         try {
 			BufferedImage sortie = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 			
-			ImageIO.write(sortie.getSubimage(getBeginX0(), getBeginX1(), getNewWidth()+getBeginX1(), getNewHeight()+getBeginX1()) , "png", new File("/Users/sofiane/desktop/screenshot9.png"));
+			ImageIO.write(sortie.getSubimage(getBeginX0(), getBeginX1(), getNewWidth(), getNewHeight()) , "png", new File("/Users/sofiane/desktop/screenshot9.png"));
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

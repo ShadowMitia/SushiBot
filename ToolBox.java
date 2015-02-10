@@ -1,19 +1,15 @@
 import java.awt.AWTException;
 import java.awt.BorderLayout;
 import java.awt.Desktop;
-import java.awt.FlowLayout;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -22,6 +18,10 @@ import javax.swing.JTextField;
 
 public class ToolBox extends JFrame implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -343788682534799357L;
 	private int w;
 	private int h;
 
@@ -32,7 +32,7 @@ public class ToolBox extends JFrame implements ActionListener {
 	private JTextField txt;
 
 	private int countScreen;
-	private GameArea ga;
+	private Rectangle ga;
 
 	public ToolBox(int largeur, int longeur) {
 
@@ -52,9 +52,9 @@ public class ToolBox extends JFrame implements ActionListener {
 		this.setResizable(false);
 
 		this.snap = new JButton("Screen!");
-		this.detect = new JButton("Detection Immediate");
-		this.launch = new JButton("Go (johnny go)le jeu");
-		this.Auto = new JButton("Auto avec attente");
+		this.detect = new JButton("InstantDetect");
+		this.launch = new JButton("Go Johnny!");
+		this.Auto = new JButton("AutoDelayDetect");
 
 		this.txt = new JTextField();
 
@@ -69,58 +69,49 @@ public class ToolBox extends JFrame implements ActionListener {
 		super.add(this.txt, BorderLayout.CENTER);
 		super.add(this.Auto, BorderLayout.EAST);
 
-		super.show();
+		super.setVisible(true);
+
+	}
+
+	public void Capture() throws AWTException {
+
+
+
+		BufferedImage screen = new Robot().createScreenCapture(this.ga);
+		try {
+			ImageIO.write(screen, "png", new File("Screen" + Integer.toString(this.countScreen) + ".png"));
+
+			this.countScreen ++ ;
+		}
+		
+		catch (IOException e) {}
 		
 	}
 
-	public void Capture() {
-
+	
+	public void CaptureGame(int tps) throws AWTException {
+		
+		
+		setVisible(false);
+		
+		Robot mouveMouse = new Robot();
+		
+		mouveMouse.mouseMove(0, 0);
+		
 		try {
-			BufferedImage screen = new Robot()
-					.createScreenCapture(new Rectangle(this.ga.getX(), this.ga
-							.getY(), this.ga.getHeight(), this.ga.getWidth()));
-
-			ImageIO.write(screen, "png",
-					new File("ScreenShot" + Integer.toString(this.countScreen)
-							+ ".png"));
-
-			this.countScreen++;
-
-		} catch (AWTException e) {
-		}
-
-		catch (IOException e) {
-		}
-
-	}
-
-	public void CaptureGame(int temps) {
-
-		try {
-
-			super.setVisible(false);
-
-			Robot bot = new Robot();
-
-			bot.mouseMove(0, 0);
-
-			Screen screenshot = new Screen(temps); // le parametre est le temps
-													// avant le
-													// screen en secondes;
-
-			screenshot.saveImage("Screenshot_Full_Res");
+			
+			Screen screenshot = new Screen(tps);
+			screenshot.saveImage("Screen_fullres");
 			screenshot.saveGameArea("Screen_reduit");
-
-			int[] tab = new int[4];
-			tab = screenshot.getGameArea();
-
-			this.ga = new GameArea(tab[0], tab[1], tab[2], tab[3]);
-
-			super.setVisible(true);
-
-		} catch (Exception e) {
-		}
-
+			this.ga = screenshot.getGameArea();
+			
+		} 
+		
+		catch (Exception e) {}
+		
+		setVisible(true);
+		
+		
 	}
 
 	public void Launch() {
@@ -139,14 +130,22 @@ public class ToolBox extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 
 		if (arg0.getSource() == this.snap) {
-
-			Capture();
+			
+			try {
+				Capture();
+			}
+			
+			catch (AWTException e) {}
 
 		}
 
 		else if (arg0.getSource() == this.detect) {
-
-			CaptureGame(1);
+			
+			try {
+				CaptureGame(1);
+			}
+			
+			catch (AWTException e) {}
 
 		} else if (arg0.getSource() == this.launch) {
 
@@ -157,8 +156,16 @@ public class ToolBox extends JFrame implements ActionListener {
 		else if (arg0.getSource() == this.Auto) {
 
 			String temp = this.txt.getText();
+			
 			Launch();
-			CaptureGame(Integer.parseInt(temp));
+			
+			try {
+				CaptureGame(Integer.parseInt(temp));
+			}
+			
+			catch (NumberFormatException e) {} 
+			
+			catch (AWTException e) {}
 
 		}
 

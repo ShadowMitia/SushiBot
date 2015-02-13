@@ -13,7 +13,7 @@ import java.net.URISyntaxException;
 import javax.imageio.ImageIO;
 
 ///////////////////////////
-// created 04/02/2015 	 //
+// Created 04/02/2015 	 //
 // Last update : 04/02/15//
 ///////////////////////////
 
@@ -121,13 +121,3 @@ public class Game {
 	}
 	
 }
-
-
-
-
-/////////////////////////////////
-// pour tester cette classe    //////////////////////////////////////////////////////
-//Game g = new Game("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");//
-//BufferedImage img = g.getScreen(12000);////////////////////////////////////////////
-//g.createScreenImage(img);				 //
-///////////////////////////////////////////

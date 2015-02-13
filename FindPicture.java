@@ -6,21 +6,38 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
 
-
+/**
+ * @brief [brief description]
+ * @details [long description]
+ * 
+ * @param src [description]
+ * @param img [description]
+ * 
+ * @return [description]
+ */
 public class FindPicture {
+
+
 	// source qui est l'image du screen et img et celle qu'on doit trouver dans source 
 	public BufferedImage source  , img ; 
 	// dot est le point des coordonées 
 	public Point dot  ; 
 
-	// constructeur on doit donc y mettre une buffered image qui sera le screen et le path du sprite à chercher
+	/**
+	 * @brief constructeur on doit donc y mettre une buffered image qui sera le screen et le path du sprite à chercher
+	 * @details [long description]
+	 * 
+	 * @param src Screen du jeu en cours
+	 * @param img Chemin de l'image à trouver
+	 * 
+	 */
+
 	public FindPicture(BufferedImage src , String img){
 		this.loadPictures(img) ;
 		this.source = src ;
-		this.dot=new Point(-1,-1);
+		this.dot = new Point(-1,-1);
 	}
 
 	// loader le sprite dans le buffer img 
@@ -87,8 +104,8 @@ public class FindPicture {
 	}
 
 	///////////////////////////////
-	// les selectors 			///
-	//////////////////////////////
+	// Les accesseurs			///
+	///////////////////////////////
 	
 	//renvoie l'image source
 	public BufferedImage getSrc(){return this.source;}
@@ -104,25 +121,17 @@ public class FindPicture {
 		Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
 		g.Start("screenshot9.png");
 		
-		
-		
-		
-		
-		
-		
-		
-		
-//		BufferedImage game = g.getScreen(10000);
-//		FindPicture test = new FindPicture(game,"/Users/sofiane/desktop/screenshot10.png");
-//		test.checkLine(test.getSrc(), test.getImg());
-//		test.checkColumn(test.getSrc(), test.getImg());
-//		if (test.getX()==-1 || test.getY()==-1)throw new RuntimeException("Sprite non detecté");
-//		else {
-//		System.out.println("is line working ? "+test.getY());
-//		System.out.println("is column working ? "+test.getX());
-//		me.delay(1000);
-//		me.mouseMove(0,0);
-//		me.mouseMove(test.getX(), test.getY());
+		//BufferedImage game = g.getScreen(10000);
+		//FindPicture test = new FindPicture(game,"/Users/sofiane/desktop/screenshot10.png");
+		//test.checkLine(test.getSrc(), test.getImg());
+		//test.checkColumn(test.getSrc(), test.getImg());
+		//if (test.getX()==-1 || test.getY()==-1)throw new RuntimeException("Sprite non detecté");
+		//else {
+		//System.out.println("is line working ? "+test.getY());
+		//System.out.println("is column working ? "+test.getX());
+		//me.delay(1000);
+		//me.mouseMove(0,0);
+		//me.mouseMove(test.getX(), test.getY());
 		//me.mousePress(InputEvent.BUTTON1_MASK);
 		//me.mouseRelease(InputEvent.BUTTON1_MASK);
 		//}	

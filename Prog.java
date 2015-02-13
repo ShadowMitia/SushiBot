@@ -8,10 +8,6 @@ import java.net.URISyntaxException;
 
 public class Prog {
 
-	
-	
-	
-	
 	public static void main(String []args) throws Exception {
 	
 		try {

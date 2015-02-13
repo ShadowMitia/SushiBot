@@ -7,6 +7,14 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+
+/**
+ * @brief [brief description]
+ * @details [long description]
+ * 
+ * @param x [description]
+ * @return [description]
+ */
 public class Screen {
 
 	private Robot bot;
@@ -14,6 +22,14 @@ public class Screen {
 	private Dot departGauche;
 	private Dot departDroit;
 
+
+	/**
+	 * @brief [brief description]
+	 * @details [long description]
+	 * 
+	 * @param x [description]
+	 * @return [description]
+	 */
 	public Screen(int x) throws Exception {
 
 		Thread.sleep(1000 * x);
@@ -24,9 +40,17 @@ public class Screen {
 	}
 
 	/*
-	 * 
 	 * La fonction ci-dessous convertit un "pixel numérique", en rouge, vert,
 	 * bleu. L'alpha nous on s'en tape. Un peu comme en processing ;)
+	 */
+	/**
+	 * @brief [brief description]
+	 * @details [long description]
+	 * 
+	 * @param x [description]
+	 * @param y [description]
+	 * 
+	 * @return [description]
 	 */
 	public int[] getPixelARGB(int x, int y) {
 		int pixel = this.img.getRGB(x, y);
@@ -44,6 +68,12 @@ public class Screen {
 		return RGB;
 	}
 
+	/**
+	 * @brief [brief description]
+	 * @details [long description]
+	 * 
+	 * @param name [description]
+	 */
 	public void saveImage(String name) {
 
 		try {
@@ -59,7 +89,15 @@ public class Screen {
 	 * l'image horizontalement, dans le sens de la largeur, dans la direction indiquée par le caractère "direction", avec
 	 * e = est, w = west.
 	 */
-	
+	/**
+	 * @brief [brief description]
+	 * @details [long description]
+	 * 
+	 * @param direction [description]
+	 * @param x [description]
+	 * 
+	 * @return [description]
+	 */
 	public int lookHorizontal(char direction, int x){
 		
 		if(direction == 'e'){
@@ -88,7 +126,15 @@ public class Screen {
 	 * La fonction du dessous renvoie le premier pixel dont la couleur est différente du pixel de départ, en parcourant l'image
 	 * dans le sens de la hauteur, dans la direction indiquée par le caractère "direction", avec n = nord, s = sud.
 	 */
-	
+	/**
+	 * @brief [brief description]
+	 * @details [long description]
+	 * 
+	 * @param direction [description]
+	 * @param y [description]
+	 * 
+	 * @return [description]
+	 */
 	public int lookVertical(char direction, int y) {
 		
 		if(this.img.getRGB(this.departGauche.x, this.departGauche.y) != this.img.getRGB(this.departGauche.x, y))return y;
@@ -120,7 +166,12 @@ public class Screen {
 		
 	}
 
-public int[] getGameArea(){
+	/**
+	 * @brief [brief description]
+	 * @details [long description]
+	 * @return [description]
+	 */
+	public int[] getGameArea(){
 		
 		int[] res = new int[4]; // 1ere case, x du point haut-gauche, 2eme, y du point haut-gauche, 3eme largeur, 4eme hauteur.
 		
@@ -156,7 +207,12 @@ public int[] getGameArea(){
 		
 	}
 
-	
+	/**
+	 * @brief [brief description]
+	 * @details [long description]
+	 * 
+	 * @param name [description]
+	 */
 	public void saveGameArea(String name){
 		
 		int[] tab = this.getGameArea();
@@ -169,28 +225,36 @@ public int[] getGameArea(){
 		} catch (IOException e) {
 		}
 		
-	}
-	
+	}	
 }
 
-class Dot {
-	
-	int x;
-    int y;
-	
-	public Dot(int x, int y){
+	/**
+	 * @brief [brief description]
+	 * @details [long description]
+	 * 
+	 * @param x [description]
+	 * @param y [description]
+	 * 
+	 * @return [description]
+	 */
+	class Dot {
 		
-		this.x = x;
-		this.y = y;
+		int x;
+	    int y;
 		
+		public Dot(int x, int y){
+			
+			this.x = x;
+			this.y = y;
+			
+			
+		}
 		
+		public void setPos(int x, int y) {
+			
+			this.x = x;
+			this.y = y;
+			
+		}
+			
 	}
-	
-	public void setPos(int x, int y) {
-		
-		this.x = x;
-		this.y = y;
-		
-	}
-		
-}

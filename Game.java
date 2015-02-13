@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
 import javax.imageio.ImageIO;
 
 ///////////////////////////
@@ -19,28 +18,34 @@ import javax.imageio.ImageIO;
 ///////////////////////////
 
 /**
- * @brief Une classe qui demarre un jeu avec l'I.A.
+ * @brief Classe qui s'occupe de gérer le jeu à jouer et initialiser l'I.A.
  * @details [long description]
- * 
- * @param url L'url du jeu à lancer (Exemple: "http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf")
  * 
  */
 
 public class Game {
-	/*constructeur
-	 * prend l'url du jeu pour debuter
+	/**
+	 * @brief Initialise le jeu à jouer ainsi que l'IA
+	 * @details [long description]
+	 * 
+	 * @param url L'url du jeu à lancer (Exemple: "http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf")
+	 * 
 	 */
 	public Game(String url){
 		try {
 			Desktop d = Desktop.getDesktop();
 			d.browse(new URI(url));		
-		} catch (URISyntaxException e) {
-		} catch (IOException e) {
+		} catch (URISyntaxException | IOException e) {
+			System.out.println("Exception: " + e);
 		}
 	}
 	
-	/*methode qui prend un screen apres x temps
-	 * renvoit un screen deja cadré sur le jeu  
+	/**
+	 * @brief Méthode qui prend un screen après x temps
+	 * @details [long description]
+	 * 
+	 * @param x temps du delay
+	 * @return renvoit la partie de l'écran sur la partie qui détient le jeu
 	 */
 	public BufferedImage getScreen(int x){
 		BufferedImage img	 = null ; 
@@ -55,6 +60,13 @@ public class Game {
 		
 	}
 
+	/**
+	 * @brief Méthode qui prend la partie de l'écran qui détient le jeu
+	 * @details [long description]
+	 * 
+	 * @param x temps du delay
+	 * @return renvoit la partie de l'écran sur la partie qui détient le jeu
+	 */
 	public BufferedImage getScreen(){
 		BufferedImage img	 = null ; 
 		try{	
@@ -66,8 +78,10 @@ public class Game {
 		
 	}
 	
-	/*methode qui crée l'image du screen (png)
-	 * prend en param une BufferedImage
+	/**
+	 * @brief Méthode qui prend une image et l'enregistre en PNG
+	 * 
+	 * @param image Le BufferedImage qui doit être enregistré
 	 */
 	public void createScreenImage (BufferedImage image){
 		try {
@@ -76,6 +90,12 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * @brief [brief description]
+	 * @details [long description]
+	 * 
+	 * @param srcPath [description]
+	 */
 	public void Start (String srcPath) throws AWTException{
 		Robot me = new Robot();
 		BufferedImage game = this.getScreen(10000);
@@ -92,6 +112,12 @@ public class Game {
 		me.mousePress(InputEvent.BUTTON1_MASK);
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 		}
+	}
+
+	public static void main(String[] args) {
+		Game g = new Game("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
+		BufferedImage img = g.getScreen(12000);
+		g.createScreenImage(img);
 	}
 	
 }

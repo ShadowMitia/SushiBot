@@ -1,4 +1,3 @@
-package Suchi;
 import java.awt.AWTException;
 import java.awt.Desktop;
 import java.awt.Rectangle;
@@ -13,8 +12,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import javax.imageio.ImageIO;
-
-import Pictures.FindPicture;
 
 /////////////////////////////////////////////////////////////////////////////
 // Une classe Game qui demarre un jeu 									   //
@@ -55,7 +52,18 @@ public class Game {
 			img = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 		}catch (Exception e){} ;
 
-		if (img==null) throw new RuntimeException("pas d'image");
+		if (img==null) throw new RuntimeException("Erreur: Screenshot non prit");
+		return img;//.getSubimage(img.getWidth()/8,img.getHeight()/12,img.getWidth()-2*img.getWidth()/8,img.getHeight()-img.getHeight()/12);
+		
+	}
+
+	public BufferedImage getScreen(){
+		BufferedImage img	 = null ; 
+		try{	
+			img = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+		}catch (Exception e){} ;
+
+		if (img==null) throw new RuntimeException("Erreur: Screenshot non prit");
 		return img;//.getSubimage(img.getWidth()/8,img.getHeight()/12,img.getWidth()-2*img.getWidth()/8,img.getHeight()-img.getHeight()/12);
 		
 	}
@@ -65,7 +73,7 @@ public class Game {
 	 */
 	public void createScreenImage (BufferedImage image){
 		try {
-			ImageIO.write(image, "png", new File("/Users/sofiane/desktop/screenshot.png"));
+			ImageIO.write(image, "png", new File("/home/dimitri/Desktop/screenshot.png"));
 		} catch (IOException e) {
 		}
 	}
@@ -86,7 +94,7 @@ public class Game {
 		me.mousePress(InputEvent.BUTTON1_MASK);
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 		}
-	     }
+	}
 	
 }
 

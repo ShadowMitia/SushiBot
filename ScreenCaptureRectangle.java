@@ -62,7 +62,7 @@ public class ScreenCaptureRectangle {
 		System.out.println("Rectangle of interest: " + captureRect);
 		///////phase d'enregistrement 
 		try {
-			ImageIO.write(screen.getSubimage(this.captureRect.x, this.captureRect.y, this.captureRect.width, this.captureRect.height) , "png", new File("/Users/sofiane/desktop/screenshot9.png"));
+			ImageIO.write(screen.getSubimage(this.captureRect.x, this.captureRect.y, this.captureRect.width, this.captureRect.height) , "png", new File("screenshot9.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class ScreenCaptureRectangle {
 	public static void main(String[] args) throws Exception {
 		Robot robot = new Robot();
 		Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
-		BufferedImage game = g.getScreen(10000);
+		final BufferedImage game = g.getScreen(10000);
 
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {

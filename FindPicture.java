@@ -1,8 +1,3 @@
-package Pictures;
-
-
-import Suchi.Game;
-
 import java.awt.AWTException;
 import java.awt.Point;
 import java.awt.Robot;
@@ -107,7 +102,7 @@ public class FindPicture {
 
 	public static void main (String [] args) throws AWTException{
 		Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
-		g.Start("/Users/sofiane/desktop/screenshot10.png");
+		g.Start("screenshot9.png");
 		
 		
 		

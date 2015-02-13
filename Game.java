@@ -13,20 +13,18 @@ import java.net.URISyntaxException;
 
 import javax.imageio.ImageIO;
 
-/////////////////////////////////////////////////////////////////////////////
-// Une classe Game qui demarre un jeu 									   //
-//Liste des Méthodes : 													   //
-// getscreen(int x) ---> renvoit un screen apres x milisecondes	(cadré sur //
-// l'image)																   //
-// createScreenImage(BUfferedImage img) ---> cree un png du screen (sert   //
-//  à tester)															   //
-/////////////////////////////////////////////////////////////////////////////
-
 ///////////////////////////
 // created 04/02/2015 	 //
 // Last update : 04/02/15//
 ///////////////////////////
 
+/**
+ * @brief Une classe qui demarre un jeu avec l'I.A.
+ * @details [long description]
+ * 
+ * @param url L'url du jeu à lancer (Exemple: "http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf")
+ * 
+ */
 
 public class Game {
 	/*constructeur

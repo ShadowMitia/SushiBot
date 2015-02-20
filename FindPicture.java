@@ -1,12 +1,17 @@
 import java.awt.AWTException;
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.Robot;
+import java.awt.color.ColorSpace;
 import java.awt.event.InputEvent;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorConvertOp;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.imageio.ImageIO;
+//import java.awt.image.BufferedImage
 
 /**
  * @brief [brief description]
@@ -35,9 +40,11 @@ public class FindPicture {
 	 */
 
 	public FindPicture(BufferedImage src , String img){
-		this.loadPictures(img) ;
-		this.source = src ;
-		this.dot = new Point(-1,-1);
+		
+
+//		this.loadPictures(img) ;
+//		this.source = src ;
+//		this.dot = new Point(-1,-1);
 	}
 
 	// loader le sprite dans le buffer img 
@@ -102,6 +109,40 @@ public class FindPicture {
 
 		return false; 
 	}
+	public int[] extractRGB (int color){
+		
+		int[] rgb = new int[3];
+		for(int i = 2; i>=0; i--){
+			image[i] = (color >> 8*i ) & 0xFF; // rouge, vert, bleu
+		}
+		return rgb;
+	}
+	
+	public int convertPixel(int[] rgb){
+		int color=0;
+		
+		for(int i: rgb){
+			color+=i/3;
+		}
+		if(color < 127){
+			return 0xFF000000;
+		}
+		else return 0xFFFFFFFF;
+		//return color;
+	}
+	
+	public BufferedImage convertNB(BufferedImage img){
+		
+		for(int i = 0; i < img.getHeight(); i++){
+			for(int j = 0; j < img.getWidth(); j++){
+				int[] rgb = this.extractRGB(img.getRGB(i, j));
+				img.setRGB(i, j, this.convertPixel(rgb));;
+			}
+		}
+		
+		
+		return img;
+	}
 
 	///////////////////////////////
 	// Les accesseurs			///
@@ -118,8 +159,21 @@ public class FindPicture {
 
 
 	public static void main (String [] args) throws AWTException{
-		Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
-		g.Start("screenshot9.png");
+		BufferedImage test = new BufferedImage(3, 2, 1);
+		
+		FindPicture find = new FindPicture(test, " ");
+		int a = 0xFFFFFFFF;
+		int[] b = find.extractRGB(a);
+		for(int i: b){
+			System.out.println(i);
+		}
+		
+		System.out.println();
+		
+		
+		//Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
+		//g.Start("screenshot9.png");
+		
 		
 		//BufferedImage game = g.getScreen(10000);
 		//FindPicture test = new FindPicture(game,"/Users/sofiane/desktop/screenshot10.png");

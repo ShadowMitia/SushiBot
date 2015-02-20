@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 
 /**
- * @brief [brief description]
+ * @brief Classe pour créer des screenshots
  * @details [long description]
  * 
  * @param x [description]
@@ -44,7 +44,7 @@ public class Screen {
 	 * bleu. L'alpha nous on s'en tape. Un peu comme en processing ;)
 	 */
 	/**
-	 * @brief [brief description]
+	 * @brief Convertit le pixel en RGB
 	 * @details [long description]
 	 * 
 	 * @param x [description]

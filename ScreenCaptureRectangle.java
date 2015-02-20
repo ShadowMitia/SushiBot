@@ -35,8 +35,7 @@ public class ScreenCaptureRectangle {
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(screenScroll, BorderLayout.CENTER);
 
-		final JLabel selectionLabel = new JLabel(
-				"Séléctionnez ce que vous voulez couper");
+		final JLabel selectionLabel = new JLabel("Séléctionnez ce que vous voulez couper");
 		panel.add(selectionLabel, BorderLayout.SOUTH);
 
 		repaint(screen, screenCopy);

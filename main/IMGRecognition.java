@@ -6,6 +6,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputStream.GetField;
 
 import main.*;
 
@@ -13,10 +14,13 @@ import javax.imageio.ImageIO;
 
 public class IMGRecognition {
 
-	public void main(String[] args) {
-
+	public static int count = 0;
+	
+	public IMGRecognition(){
+		
+		
 	}
-
+	
 	public BufferedImage loadImage(String filename) {
 
 		BufferedImage img = null;
@@ -32,14 +36,16 @@ public class IMGRecognition {
 		return img;
 	}
 
-	/*
-	 * public Dot getRandomDot() {
-	 * 
-	 * double random = Math.random(); double random2 = Math.random(); Dot dot =
-	 * new Dot(random, random2); return dot;
-	 * 
-	 * }
-	 */
+	public void writeImage(BufferedImage im, String nom) {
+
+		try {
+
+			ImageIO.write(im, "png", new File(nom + ".png"));
+
+		} catch (IOException e) {
+		}
+
+	}
 
 	public Boolean areTheseImagesEqualBucketPixelMethod(String name1,
 			String name2, int precision) {
@@ -102,9 +108,9 @@ public class IMGRecognition {
 			for (int j = 0; j < img.getWidth(); j++) {
 
 				int r, g, b;
-				r = getRed(img, new Dot(j, i));
-				g = getGreen(img, new Dot(j, i));
-				b = getBlue(img, new Dot(j, i));
+				r = getRed(img, j, i);
+				g = getGreen(img, j, i);
+				b = getBlue(img, j, i);
 
 				if (r == g && g == b) {
 
@@ -130,27 +136,27 @@ public class IMGRecognition {
 		return tab;
 	}
 
-	public int getRed(BufferedImage img, Dot dot) {
+	public int getRed(BufferedImage img, int x, int y) {
 
-		int temp = img.getRGB(dot.x, dot.y);
+		int temp = img.getRGB(x, y);
 		Boolean alph = img.getColorModel().hasAlpha();
 		Color c = new Color(temp, alph);
 		return c.getRed();
 
 	}
 
-	public int getBlue(BufferedImage img, Dot dot) {
+	public int getBlue(BufferedImage img, int x, int y) {
 
-		int temp = img.getRGB(dot.x, dot.y);
+		int temp = img.getRGB(x, y);
 		Boolean alph = img.getColorModel().hasAlpha();
 		Color c = new Color(temp, alph);
 		return c.getBlue();
 
 	}
 
-	public int getGreen(BufferedImage img, Dot dot) {
+	public int getGreen(BufferedImage img, int x, int y) {
 
-		int temp = img.getRGB(dot.x, dot.y);
+		int temp = img.getRGB(x, y);
 		Boolean alph = img.getColorModel().hasAlpha();
 		Color c = new Color(temp, alph);
 		return c.getGreen();
@@ -173,39 +179,48 @@ public class IMGRecognition {
 		return resizedImage;
 	}
 
-	public Boolean areTheseImagesEqualInvertMethod(String name1, String name2,
-			int precision) {
+	public Boolean areTheseImagesEqualInvertMethod(String imN1, BufferedImage im2,
+			int precision) { //im1 est le sprite de référence, im2 le sprite screené
+		
+//		writeImage(im1, "IM1/im1_debut_" + Integer.toString(count));
+//		writeImage(im2, "IM2/im2_debut_" + Integer.toString(count));
+		
+		BufferedImage im1 = loadImage("Sprits/" + imN1 +".png");
+		
+		writeImage(im1, "IM1/im1_" + Integer.toString(count));
+		writeImage(im2, "IM2/im2_" + Integer.toString(count));
+		
+		BufferedImage imInversed = invertImage(im1);
+		
+		writeImage(imInversed, "Inversed/inversed_" + Integer.toString(count));
+		
+		BufferedImage imAdd = addImages(imInversed, im2);
+		
+		writeImage(imAdd, "Final/final_" + Integer.toString(count));
+		
+		count++;
+		
+		return checkWhiteImage(imAdd, precision);
+		
+		
+	}
 
-		BufferedImage im1 = loadImage(name1);
-		BufferedImage im2 = loadImage(name2);
-		if (im1.getWidth() != im2.getWidth()
-				|| im1.getHeight() != im2.getHeight()) {
+	public BufferedImage addImages(BufferedImage im1, BufferedImage im2) {
 
-			if (im1.getWidth() > im2.getWidth()) {
+		for (int i = 0; i < im1.getHeight(); i++) {
 
-				if (im1.getHeight() > im2.getHeight()) {
+			for (int j = 0; j < im1.getWidth(); j++) {
 
-					im1 = resizeImage(im1, im2.getHeight(), im2.getWidth());
+				im1 = setRGB(im1, j, i, getRed(im1, j, i) + getRed(im2, j, i),
+						getGreen(im1, j, i) + getGreen(im2, j, i),
+						getBlue(im1, j, i) + getBlue(im2, j, i));
 
-				} else
-					return false;
-
-			} else if (im1.getWidth() == im1.getWidth()) {
-
-				if (im1.getHeight() == im2.getHeight())
-					;
-				else
-					return false;
-
-			} else
-				return false;
-
-		} else {
+			}
 
 		}
-		im1 = invertImage(im1);
 
-		return true;
+		return im1;
+
 	}
 
 	public BufferedImage invertImage(BufferedImage img) {
@@ -237,6 +252,74 @@ public class IMGRecognition {
 
 		}
 		return img;
+	}
+
+	public BufferedImage setRGB(BufferedImage img, int x, int y, int red,
+			int green, int blue) {
+
+		int col = (red << 16) | (green << 8) | blue;
+		img.setRGB(x, y, col);
+
+		return img;
+
+	}
+
+	public BufferedImage setRGBwAlpha(BufferedImage img, int x, int y, int red,
+			int green, int blue, int alpha) {
+
+		int col = (alpha << 24) | (red << 16) | (green << 8) | blue;
+		img.setRGB(x, y, col);
+
+		return img;
+
+	}
+
+	public Boolean checkWhiteImage(BufferedImage img, int precision) {
+
+		int nOfWhitePixels = 0;
+
+		for (int i = 0; i < img.getHeight(); i++) {
+
+			for (int j = 0; j < img.getWidth(); j++) {
+
+				if (getRed(img, j, i) >= 240 && getGreen(img, j, i) >= 240
+						&& getBlue(img, j, i) >= 240)
+					nOfWhitePixels++;
+
+			}
+
+		}
+		double ratio = ((double) nOfWhitePixels / (double) (img.getHeight() * img
+				.getWidth())) * 100.;
+		
+
+		if ((double)precision <= Math.floor(ratio)) {
+			return true;
+		} else {
+			
+			return false;
+		}
+	}
+	
+	public BufferedImage xorEffect(BufferedImage imageA, BufferedImage imageB) {
+	    if (imageA.getWidth() != imageB.getWidth() ||
+	        imageA.getHeight() != imageB.getHeight())
+	    {
+	        throw new IllegalArgumentException("Dimensions are not the same!");
+	    }
+	    BufferedImage img = new BufferedImage(imageA.getWidth(),
+	                                          imageA.getHeight(),
+	                                          BufferedImage.TYPE_INT_ARGB_PRE);
+
+	    for (int y = 0; y < imageA.getHeight(); ++y) {
+	        for (int x = 0; x < imageA.getWidth(); ++x) {
+	           int pixelA = imageA.getRGB(x, y);
+	           int pixelB = imageB.getRGB(x, y);
+	           int pixelXOR = pixelA ^ pixelB;
+	           img.setRGB(x, y, pixelXOR);
+	        }
+	    }
+	    return img;
 	}
 
 }

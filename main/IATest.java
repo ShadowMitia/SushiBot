@@ -16,9 +16,9 @@ public class IATest {
 		
 		IA ia = new IA(rectangle);
 		
-		for(String chaine : ia.getClicZone().getZonesTable().keySet()){
+		for(String chaine : ia.getZone().getZonesTable().keySet()){
 			
-			System.out.println(chaine + " , x: " + ia.getClicZone().getZonesTable().get(chaine).x + ", y : " + ia.getClicZone().getZonesTable().get(chaine).y);
+			System.out.println(chaine + " , x: " + ia.getZone().getZonesTable().get(chaine).x + ", y : " + ia.getZone().getZonesTable().get(chaine).y);
 			
 		}
 		

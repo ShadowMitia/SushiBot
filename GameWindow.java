@@ -1,4 +1,6 @@
+import java.awt.AWTException;
 import java.awt.Desktop;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -17,20 +19,23 @@ import java.awt.event.MouseListener;
 public class GameWindow {
 	
 	public static void main(String [] args){
-		GameWindow window = new GameWindow();
-		window.returnCropped(window.getImg());
 		
-		//me.mouseMove(0,0);
+		ClicButton clic = new ClicButton(new File("sprites.txt"));
+		clic.clique("start");
+		clic.clique("continue");
+		clic.clique("skip");
+		clic.clique("continue");
+		clic.clique("rice");
 		}
 	
-	BufferedImage img;
+	private BufferedImage img;
 	
 	public GameWindow(){
 		
 		try{
 			Desktop d = Desktop.getDesktop();
 			d.browse(new URI("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf"));		
-			Thread.sleep(10000);	
+			Thread.sleep(9000);	
 			this.img = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 			ImageIO.write(img, "png", new File("Screen.png"));
 		}catch (Exception e){System.out.println("Exception: " + e);};
@@ -103,8 +108,7 @@ public class GameWindow {
 		//System.out.println(j);
 		return j+1 ;
 	}
-	public BufferedImage returnCropped(BufferedImage img){
-		System.out.println(this.xGauche(img) + " " + this.xDroit(img)  + " " + this.yHaut(img) + " " + (this.xDroit(img)-this.xGauche(img)));
+	public BufferedImage returnCropped(BufferedImage img){ 
 		int hauteur = (3*(this.xDroit(img)-this.xGauche(img))/4);
 		BufferedImage gameWindow = this.img.getSubimage(this.xGauche(img), this.yHaut(img), this.xDroit(img)-this.xGauche(img), hauteur);
 		
@@ -112,9 +116,14 @@ public class GameWindow {
 			ImageIO.write(gameWindow, "png", new File("ScreenCrop.png"));
 		} catch (IOException e) {
 		}
-		return null;
+		return gameWindow;
 		
 	}
 	
 	public BufferedImage getImg(){return this.img;}
+	public int getWindowH(){return (3*(this.xDroit(img)-this.xGauche(img))/4);}
+	public int getWindowW(){return this.xDroit(img)-this.xGauche(img);}
+	public Point getDepart(){
+		return new Point(this.xGauche(this.img), this.yHaut(this.img));
+		}
 }

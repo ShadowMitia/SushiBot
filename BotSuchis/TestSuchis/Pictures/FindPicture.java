@@ -18,7 +18,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import com.mortennobel.imagescaling.experimental.ImprovedMultistepRescaleOp;
 
 
 public class FindPicture {

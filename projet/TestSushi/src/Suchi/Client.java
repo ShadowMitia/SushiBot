@@ -16,9 +16,8 @@ public class Client  {
 	private BufferedImage[] customer ; 
 	private boolean served[] ; 
 	private String oni , maki , california , salmonRolls, shrimp; 
-	private ArrayList<Sushis> toDo ;
 	private long [] compteurs ;
-	static int delaiDeCommande = 20000 ; // delai à optimiser  
+	static int delaiDeCommande = 30000 ; // delai à optimiser  
 
 	enum Sushis {
 		CALIFORNIA , 
@@ -51,7 +50,6 @@ public class Client  {
 		this.salmonRolls="/Users/sofiane/desktop/L2/S4/POO/projet/sprites/salmon.png";
 		this.shrimp  =  "/Users/sofiane/desktop/L2/S4/POO/projet/sprites/shrimp.png";
 
-		this.toDo = new ArrayList<Sushis>();
 
 	}
 
@@ -73,7 +71,7 @@ public class Client  {
 	public void check() throws AWTException, InterruptedException{
 		this.clearTable();
 		for (int i = 0; i < this.customer.length; i++) {
-
+			this.clearTable();
 			FindPicture test1 = new FindPicture(this.customer[i],this.maki);
 
 			if (!test1.checkImage() ) {// premier if 
@@ -97,13 +95,13 @@ public class Client  {
 							}
 							else {
 								if (!this.served[i]){// bulle + false 
-									this.toDo.add(Sushis.SHRIMP);
+									new ShrimpSh() ; 
 									this.served[i]=true ; // on le sert 
 									this.compteurs[i]=new Date().getTime();
 								} else {// bulle + true 
 									// ça veut dire qu'il attend
 									if (new Date().getTime()-this.compteurs[i]>delaiDeCommande){
-										this.toDo.add(Sushis.SHRIMP);
+										new ShrimpSh() ; 
 										this.served[i]=true ;
 										this.compteurs[i]=new Date().getTime();
 									} 
@@ -115,14 +113,14 @@ public class Client  {
 
 						else {
 							if (!this.served[i]){// bulle + false 
-								this.toDo.add(Sushis.SALMONROLLS);
+								new Salmon();
 								this.served[i]=true ; // on le sert 
 								this.compteurs[i]=new Date().getTime();
 
 							} else {// bulle + true 
 								// ça veut dire qu'il attend
 								if (new Date().getTime()-this.compteurs[i]>delaiDeCommande){
-									this.toDo.add(Sushis.SALMONROLLS);
+									new Salmon () ;
 									this.served[i]=true ;
 									this.compteurs[i]=new Date().getTime();
 								}else { continue ; } 
@@ -132,14 +130,14 @@ public class Client  {
 
 					else {
 						if (!this.served[i]){// bulle + false 
-							this.toDo.add(Sushis.ONIGIRI);
+							new Onigiri () ; 
 							this.served[i]=true ; // on le sert 
 							this.compteurs[i]=new Date().getTime();
 
 						} else {// bulle + true 
 							// ça veut dire qu'il attend
 							if (new Date().getTime()-this.compteurs[i]>delaiDeCommande){
-								this.toDo.add(Sushis.ONIGIRI);
+								new Onigiri () ; 
 								this.served[i]=true ;
 								this.compteurs[i]=new Date().getTime();
 							}else { continue ; } 
@@ -148,14 +146,14 @@ public class Client  {
 
 				}else {
 					if (!this.served[i]){// bulle + false 
-						this.toDo.add(Sushis.CALIFORNIA);
+						new California() ; 
 						this.served[i]=true ; // on le sert 
 						this.compteurs[i]=new Date().getTime();
 
 					}else {// bulle + true 
 						// ça veut dire qu'il attend 
 						if (new Date().getTime()-this.compteurs[i]>delaiDeCommande){
-							this.toDo.add(Sushis.CALIFORNIA);
+							new California ();
 							this.served[i]=true ;
 							this.compteurs[i]=new Date().getTime();
 						}else { continue ; } 
@@ -164,14 +162,14 @@ public class Client  {
 			}
 			else{
 				if (!this.served[i]){// bulle + false 
-					this.toDo.add(Sushis.MAKI);
+					new Maki () ; 
 					this.served[i]=true ; // on le sert 
 					this.compteurs[i]=new Date().getTime();
 
 				}else {// bulle + true 
 					// ça veut dire qu'il attend 
 					if (new Date().getTime()-this.compteurs[i]>delaiDeCommande){
-						this.toDo.add(Sushis.MAKI);
+						new Maki () ; 
 						this.served[i]=true ;
 						this.compteurs[i]=new Date().getTime();
 					}else { continue ; }
@@ -180,47 +178,11 @@ public class Client  {
 			}
 
 		}
+		this.clearTable() ;  
 
-		this.makeS();
 	}
 
-	// si bulle + false --> servir true 
-	// si no bulle + true --> false 
 
-
-	public void makeS() throws AWTException, InterruptedException{
-		System.out.println("liste avant un tour "+this.toDo.size());
-		for(int i = 0 ; i<this.toDo.size();i++){
-			switch(this.toDo.get(i)){
-			case ONIGIRI : 
-				new Onigiri() ;
-				this.clearTable();
-				break ; 
-			case CALIFORNIA :
-				new California() ; 
-				this.clearTable();
-				break ; 
-			case MAKI : 
-				new Maki() ; 
-				this.clearTable();
-				break ; 
-
-			case SALMONROLLS : 
-				new Salmon() ;
-				this.clearTable();
-				break ; 
-
-			case SHRIMP : 
-				new ShrimpSh() ;
-				this.clearTable();
-				break;
-			}
-		}
-		this.toDo.clear();
-		//Thread.sleep(10000);
-		//this.check();
-		System.out.println("liste apres un tour "+this.toDo.size());
-	}
 
 	public void clearTable() throws AWTException{
 		Robot me = new Robot();

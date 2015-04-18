@@ -69,15 +69,17 @@ public abstract class Recette {
 
 		if (Rice<0){
 			this.buyRice();
-		}else if (Roe<0){
+		} 
+		if (Roe<0){
 			this.buyRoe();
 		}
-		else if (Noori<0){
+		if (Noori<0){
 			this.buyNoori();
-		}else if (salmon<0){
+		}
+		if (salmon<0){
 			this.buySalmon() ; 
 		}
-		else if (shrimp<0){
+		if (shrimp<0){
 			this.buyShrimp();
 		}
 

@@ -1,11 +1,13 @@
-package Suchi;
+package TestSushi.src.Suchi;
+
+import TestSushi.src.Pictures.FindPicture;
 
 import java.awt.AWTException;
 import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 
-import Pictures.FindPicture;
+
 
 public abstract class Recette {
 	protected static int Rice = 10 ; 
@@ -13,11 +15,11 @@ public abstract class Recette {
 	protected static int Noori = 10 ;
 	protected static int salmon = 5 ; 
 	protected static int shrimp = 5 ; 
-	protected final  String egggris  = "/Users/sofiane/desktop/L2/S4/POO/projet/sprites/eggGris.png" ;
-	protected final String norigris  = "/Users/sofiane/desktop/L2/S4/POO/projet/sprites/noriGris.png";
-	protected final String saumongris  ="/Users/sofiane/desktop/L2/S4/POO/projet/sprites/saumonGris.png";
-	protected final String ricegris  =  "/Users/sofiane/desktop/L2/S4/POO/projet/sprites/riceGris.png";
-	protected final String shrimpGris  =  "/Users/sofiane/desktop/L2/S4/POO/projet/sprites/shrimpGris.png";
+	protected final String egggris  = "sprites/eggGris.png" ;
+	protected final String norigris  = "sprites/noriGris.png";
+	protected final String saumongris  ="sprites/saumonGris.png";
+	protected final String ricegris  =  "sprites/riceGris.png";
+	protected final String shrimpGris  =  "sprites/shrimpGris.png";
 	protected final Point phone = new Point (1030,620);
 	protected final Point exitPhone = new Point (1050,573);
 	protected final Point RiceC = new Point (973,503);
@@ -34,8 +36,9 @@ public abstract class Recette {
 	protected final int timeTapis = 650; //600 ;
 
 
-
-
+	/**
+	 *
+	 */
 	public static void resetAliments() {
 		Rice = 10 ; 
 		Roe = 10 ; 
@@ -43,28 +46,62 @@ public abstract class Recette {
 		salmon =5 ; 
 		shrimp =5 ; 
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void useRice() throws AWTException, InterruptedException{
 		Rice-- ; 
 		this.checkAliment();
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void useRoe() throws AWTException, InterruptedException{
 		Roe-- ; 
 		this.checkAliment();
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void useNoori() throws AWTException, InterruptedException{
 		Noori-- ; 
 		this.checkAliment();
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void useSalmon() throws AWTException, InterruptedException{
 		salmon-- ; 
 		this.checkAliment();
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void useShrimp() throws AWTException, InterruptedException{
 		shrimp-- ; 
 		this.checkAliment();
 	}
 
-
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void checkAliment() throws AWTException, InterruptedException{
 
 		if (Rice<0){
@@ -85,6 +122,11 @@ public abstract class Recette {
 
 	}
 
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void phoneClick() throws AWTException, InterruptedException{
 		Robot me = new Robot() ; 
 		me.delay(2*phoneTime);
@@ -93,8 +135,10 @@ public abstract class Recette {
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
 
-
-
+    /**
+     *
+     * @throws AWTException
+     */
 	public void validatePhone() throws AWTException{
 		Robot me = new Robot () ; 
 		// valider l'achat le telephone 
@@ -104,6 +148,11 @@ public abstract class Recette {
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
 
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void buyRice() throws AWTException, InterruptedException{
 		this.phoneClick();
 		Robot me = new Robot() ; 
@@ -130,6 +179,12 @@ public abstract class Recette {
 		// mise à jour de la variable 
 		Rice+=10 ; 
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void buyRoe() throws AWTException, InterruptedException{
 		this.phoneClick();
 		Robot me = new Robot () ; 
@@ -155,6 +210,12 @@ public abstract class Recette {
 		Roe+=10 ; 
 
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void buyNoori() throws AWTException, InterruptedException{
 		this.phoneClick();
 		Robot me = new Robot () ; 
@@ -181,6 +242,11 @@ public abstract class Recette {
 
 	}
 
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void buySalmon() throws AWTException, InterruptedException{
 		this.phoneClick();
 		Robot me = new Robot () ; 
@@ -206,6 +272,12 @@ public abstract class Recette {
 		salmon+=5 ; 
 
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void buyShrimp() throws AWTException, InterruptedException{
 		this.phoneClick();
 		Robot me = new Robot () ; 
@@ -228,9 +300,6 @@ public abstract class Recette {
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 		this.validatePhone();
 		Thread.sleep(6000);
-		shrimp+=5 ; 
-
+		shrimp+=5 ;
 	}
-
-
 }

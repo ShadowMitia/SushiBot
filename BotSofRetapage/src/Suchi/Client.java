@@ -1,19 +1,26 @@
 package Suchi;
 
-import java.awt.AWTException;
-import java.awt.HeadlessException;
-import java.awt.image.BufferedImage;
-import java.util.Date;
 import Pictures.Recon;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Date;
 
 public class Client  {
 	private BufferedImage[] customer ; 
+	static Boolean first = true;
 	private boolean served[] ; 
 	private String onigiri , maki , california , salmonRolls, shrimp; 
 	private long [] compteurs ;
 	static int delaiDeCommande = 30000 ; // delai �� optimiser  
+	private Ia ia;
+	private long clearTime = 0;
+	private long oldClearTime;
 
-	Client() throws HeadlessException, AWTException{
+	Client() throws Exception{
+
+		oldClearTime = System.currentTimeMillis();
 		
 		this.customer= new BufferedImage[6];
 		this.served= new boolean[6];
@@ -30,22 +37,109 @@ public class Client  {
 		this.california="sprites/cali.png";
 		this.salmonRolls="sprites/salmon.png";
 		this.shrimp  =  "sprites/shrimp.png";
-
+		ia = new Ia();
+		
 
 	}
+	
 
 	public void update() throws HeadlessException, AWTException{
 		
 		this.customer = new BufferedImage[6];
 		this.customer = new Ia().loadCommandes();
 
+		try {
+			ia.saveSprites();
+		} catch (IOException e){
+
+		}
+
 	}
+	
+	private void makeSushi(String s) throws Exception{
+		
+		if(s == "Onigiri") {
+			
+			ia.useIngredient("Rice");
+			ia.useIngredient("Rice");
+			ia.useIngredient("Nori");
 
+			ia.clickZone("Rice");
+			ia.clickZone("Rice");
+			ia.clickZone("Nori");
+			
+		}
+		else if(s == "Maki"){
+			
+			ia.useIngredient("Rice");
+			ia.useIngredient("FishEggs");
+			ia.useIngredient("Nori");
+			ia.useIngredient("FishEggs");
 
+			ia.clickZone("Rice");
+			ia.clickZone("FishEggs");
+			ia.clickZone("Nori");
+			ia.clickZone("FishEggs");
+			
+		}
+		else if(s == "California") {
+			
+			ia.useIngredient("Rice");
+			ia.useIngredient("FishEggs");
+			ia.useIngredient("Nori");
+			
+			ia.clickZone("Rice");
+			ia.clickZone("FishEggs");
+			ia.clickZone("Nori");
+			
+		}
+		else if (s == "ShrimpSh") {
+			
+			ia.useIngredient("Rice");
+			ia.useIngredient("Nori");
+			ia.useIngredient("Shrimp");
+			ia.useIngredient("Shrimp");
+
+			ia.clickZone("Rice");
+			ia.clickZone("Nori");
+			ia.clickZone("Shrimp");
+			ia.clickZone("Shrimp");
+			
+		}
+		else if(s == "SalmonSh") {
+			
+			ia.useIngredient("Rice");
+			ia.useIngredient("Salmon");
+			ia.useIngredient("Salmon");
+			ia.useIngredient("Nori");
+			
+			ia.clickZone("Rice");
+			ia.clickZone("Nori");
+			ia.clickZone("Salmon");
+			ia.clickZone("Salmon");	
+		}
+		ia.clickZone("SushiMakerZone");
+		Thread.sleep(1400);
+		
+	}
+	
 
 	public void check() throws Exception{
 		
-		this.clearTable();
+		if(first){ 
+			ia.initGreyReference();
+			first = false;
+		}
+
+
+		if (oldClearTime + 3000 < clearTime){
+			ia.clearTable();
+			oldClearTime = clearTime;
+		} else {
+			clearTime = System.currentTimeMillis();
+		}
+
+
 		
 		for (int i = 0; i < this.customer.length; i++) {
 
@@ -53,8 +147,7 @@ public class Client  {
 			
 			if (!recon.sontEgales(this.customer[i], recon.loadSingleSpriteByPath(maki), 80)) {// premier if 
 
-				if (!recon.sontEgales(this.customer[i], recon.loadSingleSpriteByPath(california), 80)) {// deuxieme if 
-
+				if (!recon.sontEgales(this.customer[i], recon.loadSingleSpriteByPath(california), 82)) {// deuxieme if 
 					
 					if (!recon.sontEgales(this.customer[i], recon.loadSingleSpriteByPath(onigiri), 80)){  // troisieme if 
 						
@@ -72,7 +165,6 @@ public class Client  {
 									this.served[i]=false;
 									
 								}
-								continue; 
 							}
 							
 							// Cas o�� le sushi est un sushi crevette.
@@ -80,7 +172,7 @@ public class Client  {
 								
 								if(!this.served[i]) {// bulle + false
 									
-									new ShrimpSh() ; 
+									makeSushi("ShrimpSh"); 
 									this.served[i]=true ; // on le sert 
 									this.compteurs[i]=new Date().getTime();
 									
@@ -88,11 +180,10 @@ public class Client  {
 								else {// bulle + true 
 									// ������a veut dire qu'il attend
 									if(new Date().getTime()-this.compteurs[i]>delaiDeCommande) {
-										new ShrimpSh() ; 
+										makeSushi("ShrimpSh");  
 										this.served[i]=true ;
 										this.compteurs[i]=new Date().getTime();
-									} 
-									else { continue; }
+									}
 								} 
 							} 
 							//Fin du cas sushi crevette. 
@@ -103,7 +194,7 @@ public class Client  {
 							
 							if(!this.served[i]){// bulle + false
 								
-								new Salmon();
+								makeSushi("SalmonSh");
 								this.served[i]=true ; // on le sert 
 								this.compteurs[i]=new Date().getTime();
 
@@ -111,12 +202,11 @@ public class Client  {
 							else {// bulle + true 
 								// ������a veut dire qu'il attend
 								if (new Date().getTime()-this.compteurs[i]>delaiDeCommande){
-									new Salmon () ;
+									makeSushi("SalmonSh");
 									this.served[i]=true ;
 									this.compteurs[i]=new Date().getTime();
 									
 								}
-								else { continue ; } 
 							}
 						}
 					}
@@ -126,7 +216,7 @@ public class Client  {
 						
 						if(!this.served[i]) {// bulle + false
 							
-							new Onigiri () ; 
+							makeSushi("Onigiri");
 							this.served[i]=true ; // on le sert 
 							this.compteurs[i]=new Date().getTime();
 
@@ -134,12 +224,11 @@ public class Client  {
 						else {// bulle + true 
 							// ������a veut dire qu'il attend
 							if (new Date().getTime()-this.compteurs[i]>delaiDeCommande){
-								new Onigiri () ; 
+								makeSushi("Onigiri");
 								this.served[i]=true ;
 								this.compteurs[i]=new Date().getTime();
 								
 							}
-							else { continue ; } 
 						}
 					}
 					
@@ -151,7 +240,7 @@ public class Client  {
 					
 					if(!this.served[i]) {// bulle + false
 						
-						new California() ; 
+						makeSushi("California");
 						this.served[i]=true ; // on le sert 
 						this.compteurs[i]=new Date().getTime();
 
@@ -159,12 +248,11 @@ public class Client  {
 					else {// bulle + true 
 						// ������a veut dire qu'il attend 
 						if (new Date().getTime()-this.compteurs[i]>delaiDeCommande){
-							new California ();
+							makeSushi("California");
 							this.served[i]=true ;
 							this.compteurs[i]=new Date().getTime();
 							
 						}
-						else { continue ; } 
 					}
 				}
 			}
@@ -174,7 +262,7 @@ public class Client  {
 				
 				if(!this.served[i]) {// bulle + false 
 					
-					new Maki () ; 
+					makeSushi("Maki");
 					this.served[i]=true ; // on le sert 
 					this.compteurs[i]=new Date().getTime();
 
@@ -182,27 +270,17 @@ public class Client  {
 				else {// bulle + true 
 					// ������a veut dire qu'il attend 
 					if (new Date().getTime()-this.compteurs[i]>delaiDeCommande){
-						new Maki () ; 
+						makeSushi("Maki");
 						this.served[i]=true ;
 						this.compteurs[i]=new Date().getTime();
 						
 					}
-					else { continue ; }
 					//System.out.println(new Date().getTime()-this.compteurs[i]);
 				}
 			}
 
 		}
-		//this.clearTable() ;
 
-	}
-
-
-
-	public void clearTable() throws Exception{
-		
-		new Ia().clearTable();
-		
 	}
 
 }	

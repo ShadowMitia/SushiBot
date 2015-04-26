@@ -1,7 +1,12 @@
 package Suchi;
 
+
 public class Maki extends Recette{
-	
+
+	/**
+	 * Constructeur
+	 * @throws Exception
+	 */
 	Maki() throws Exception {
 		
 		super();
@@ -10,6 +15,8 @@ public class Maki extends Recette{
 		Thread.sleep(1500);
 		
 	}
+
+
 	public void make() throws Exception{		
 
 		

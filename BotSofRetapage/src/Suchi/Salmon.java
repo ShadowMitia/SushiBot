@@ -2,7 +2,11 @@ package Suchi;
 
 
 public class Salmon extends Recette {
-	
+
+	/**
+	 * Constructeur
+	 * @throws Exception
+	 */
 	Salmon() throws Exception{
 		
 		super();

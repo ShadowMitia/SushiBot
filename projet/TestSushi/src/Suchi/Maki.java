@@ -1,4 +1,4 @@
-package Suchi;
+package TestSushi.src.Suchi;
 
 import java.awt.AWTException;
 import java.awt.Point;
@@ -6,7 +6,13 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 
 public class Maki extends Recette{
-	private Point Rice,Noori,Roe ; 
+	private Point Rice,Noori,Roe ;
+
+	/**
+	 * Constructeur. Va appeller les différentes méthodes pour créer un Maki
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	Maki() throws AWTException, InterruptedException {
 
 		this.Rice=new Point(274,543);
@@ -14,8 +20,13 @@ public class Maki extends Recette{
 		this.Roe=new Point(291,620);
 		this.make();
 		this.validate();
-
 	}
+
+	/**
+	 *
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	public void make() throws AWTException, InterruptedException{
 		super.useRoe();
 		super.useRoe();
@@ -46,6 +57,12 @@ public class Maki extends Recette{
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 
 	}
+
+	/**
+	 *
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	public void validate () throws AWTException, InterruptedException {
 		Robot me = new Robot();
 

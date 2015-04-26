@@ -1,4 +1,4 @@
-
+package Sushis.src;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -12,12 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Reconnaissance {
-
-//	public static void main(String[] args) {
-//		Reconnaissance test = new Reconnaissance();
-//		
-//
-//	}
 
 	public Boolean sontEgales(File file1, File file2, int marge) {
 		BufferedImage img = null;

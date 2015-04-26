@@ -26,7 +26,7 @@ public class ScreenCaptureRectangle {
 		panel.add(screenScroll, BorderLayout.CENTER);
 
 		final JLabel selectionLabel = new JLabel(
-				"Séléctionnez ce que vous voulez couper");
+				"S��l��ctionnez ce que vous voulez couper");
 		panel.add(selectionLabel, BorderLayout.SOUTH);
 
 		repaint(screen, screenCopy);
@@ -59,7 +59,7 @@ public class ScreenCaptureRectangle {
 		});
 
 		JOptionPane.showMessageDialog(null, panel);
-		//retour du rectangle selectionné 
+		//retour du rectangle selectionn�� 
 		System.out.println("Rectangle of interest: " + captureRect);
 		///////phase d'enregistrement 
 		try {
@@ -85,8 +85,8 @@ public class ScreenCaptureRectangle {
 
 	public static void main(String[] args) throws Exception {
 		Robot robot = new Robot();
-		Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
-		BufferedImage game = g.getScreen(20000);
+		//Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
+		final BufferedImage game = Game.getScreen(10000);
 
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {

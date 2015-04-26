@@ -1,17 +1,15 @@
 package Pictures;
 
-import java.awt.Rectangle;
-import java.awt.Robot;
+import Suchi.Dot;
+import Suchi.Game;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import javax.imageio.ImageIO;
-
-import Suchi.Dot;
-import Suchi.Game;
 
 /*
  * 
@@ -23,7 +21,10 @@ public class Recon {
 
 	private HashMap<String, Rectangle> reconZones;
 	private int height, width;
-	
+
+	/**
+	 * Constructeur
+	 */
 	public Recon(){
 		
 		this.height = Game.getGameZone().height; this.width = Game.getGameZone().width;
@@ -44,7 +45,14 @@ public class Recon {
 				(98. / 928.) * this.height), 64*(1236./(double)this.width), 69*(959./this.height));
 		
 	}
-	
+
+	/**
+	 *
+	 * @param nom
+	 * @param origin
+	 * @param width
+	 * @param height
+	 */
 	public void addZone(String nom, Dot origin, double width, double height) {
 		
 		Rectangle temp = new Rectangle(origin.x, origin.y, (int)width, (int)height);
@@ -52,7 +60,13 @@ public class Recon {
 
 		
 	}
-	
+
+	/**
+	 *
+	 * @param s
+	 * @return
+	 * @throws Exception
+	 */
 	public BufferedImage chargerZone(String s) throws Exception {
 		
 		if(this.reconZones.containsKey(s)){
@@ -62,7 +76,14 @@ public class Recon {
 		}
 		else throw new Exception("Zone d'image non connue");
 	}
-	
+
+	/**
+	 *
+	 * @param img1
+	 * @param img2
+	 * @param marge
+	 * @return
+	 */
 	public Boolean sontEgales(BufferedImage img1, BufferedImage img2, int marge) {
 		
 		ArrayList<Integer> array1 = new ArrayList<Integer>();
@@ -76,6 +97,12 @@ public class Recon {
 
 	}
 
+	/**
+	 *
+	 * @param file
+	 * @param img
+	 * @return
+	 */
 	public BufferedImage chargerImg(File file, BufferedImage img) {
 
 		try {
@@ -90,8 +117,14 @@ public class Recon {
 		return img;
 	}
 
-	public Boolean testEq(ArrayList<Integer> array1, ArrayList<Integer> array2,
-			int taux) {
+	/**
+	 *
+	 * @param array1
+	 * @param array2
+	 * @param taux
+	 * @return
+	 */
+	public Boolean testEq(ArrayList<Integer> array1, ArrayList<Integer> array2, int taux) {
 		int compteur = 100;
 		for (int i = 0; i < array1.size(); i++) {
 			if (array1.get(i) >= array2.get(i) + array2.get(i) * taux / 100
@@ -99,10 +132,15 @@ public class Recon {
 				compteur--;
 		}
 		//System.out.println(compteur);
-		if(compteur >= 90) return true;
+		if(compteur >= 97) return true;
 		else return false;
 	}
 
+	/**
+	 *
+	 * @param img
+	 * @return
+	 */
 	public int moyenneRGB(BufferedImage img) {
 		int moyenne = 0;
 
@@ -117,6 +155,11 @@ public class Recon {
 		return moyenne;
 	}
 
+	/**
+	 *
+	 * @param img
+	 * @return
+	 */
 	public ArrayList<Integer> mosaique(BufferedImage img) {
 
 		ArrayList<Integer> listeRGB = new ArrayList<Integer>();
@@ -134,7 +177,12 @@ public class Recon {
 
 		return listeRGB;
 	}
-	
+
+	/**
+	 * Méthode qui permet de charger un fichier image dans un BufferedImage
+	 * @param s Le chemin vers le fichier
+	 * @return BufferedImage contenant l'image
+	 */
 	public BufferedImage loadSingleSpriteByPath(String s) {
 		
 		BufferedImage img ;
@@ -147,11 +195,27 @@ public class Recon {
 		} catch (IOException e){
 			
 			//e.printStackTrace();
-			throw new RuntimeException("Impossible de charger l'image");
+			throw new RuntimeException("Impossible de charger l'image: " + s);
 			
 		}
 	
 		
+	}
+
+	/**
+	 * Méthode qui permet de sauvegarder un BufferedImage au format png
+	 * @param im Le BufferedImage à sauvegarder
+	 * @param nom Le nom du fichier résultat
+	 */
+	public void writeImage(BufferedImage im, String nom) {
+
+		try {
+
+			ImageIO.write(im, "png", new File(nom + ".png"));
+
+		} catch (IOException e) {
+		}
+
 	}
 	
 }

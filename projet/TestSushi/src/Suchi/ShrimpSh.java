@@ -1,4 +1,4 @@
-package Suchi;
+package TestSushi.src.Suchi;
 
 import java.awt.AWTException;
 import java.awt.Point;
@@ -6,18 +6,27 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 
 public class ShrimpSh extends Recette  {
-	private Point Rice,Noori,shrimp ; 
+	private Point Rice,Noori,shrimp ;
+
+	/**
+	 *  Constructeur pour créer un Sushi Shrimp
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	public ShrimpSh() throws AWTException, InterruptedException {
 
 		this.Rice=new Point(274,543);
 		this.Noori=new Point(211,617);
 		this.shrimp = new Point (214,550);
 		this.make();
-		this.validate() ; 
-
+		this.validate();
 	}
 
-
+	/**
+	 *
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	public void make() throws AWTException, InterruptedException{
 		super.useRice();
 		super.useNoori();
@@ -47,6 +56,10 @@ public class ShrimpSh extends Recette  {
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
 
+	/**
+	 *
+	 * @throws AWTException
+	 */
 	public void validate () throws AWTException {
 		Robot me = new Robot();
 		me.delay(super.timeTapis);
@@ -55,9 +68,6 @@ public class ShrimpSh extends Recette  {
 		me.mousePress(InputEvent.BUTTON1_MASK);
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 		me.delay(super.timeTapis);
-
 	}
-
-
 }
 

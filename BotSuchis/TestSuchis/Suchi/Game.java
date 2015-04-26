@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.event.InputEvent;
-import java.awt.event.MouseAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -18,11 +17,11 @@ import Pictures.FindPicture;
 
 /////////////////////////////////////////////////////////////////////////////
 // Une classe Game qui demarre un jeu 									   //
-//Liste des Méthodes : 													   //
-// getscreen(int x) ---> renvoit un screen apres x milisecondes	(cadré sur //
+//Liste des M��thodes : 													   //
+// getscreen(int x) ---> renvoit un screen apres x milisecondes	(cadr�� sur //
 // l'image)																   //
 // createScreenImage(BUfferedImage img) ---> cree un png du screen (sert   //
-//  à tester)															   //
+//  �� tester)															   //
 /////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////
@@ -35,6 +34,8 @@ public class Game {
 	/*constructeur
 	 * prend l'url du jeu pour debuter
 	 */
+	
+	private String youwin = "Sprites/youwin.png";
 	public Game(String url){
 		try {
 			Desktop d = Desktop.getDesktop();
@@ -45,9 +46,9 @@ public class Game {
 	}
 
 	/*methode qui prend un screen apres x temps
-	 * renvoit un screen deja cadré sur le jeu  
+	 * renvoit un screen deja cadr�� sur le jeu  
 	 */
-	public BufferedImage getScreen(int x){
+	public static BufferedImage getScreen(int x){
 		BufferedImage img	 = null ; 
 
 		try{
@@ -60,7 +61,7 @@ public class Game {
 
 	}
 
-	/*methode qui crée l'image du screen (png)
+	/*methode qui cr��e l'image du screen (png)
 	 * prend en param une BufferedImage
 	 */
 	public void createScreenImage (BufferedImage image){
@@ -70,9 +71,9 @@ public class Game {
 		}
 	}
 
-	public void start() throws AWTException{
+	public void start() throws AWTException, InterruptedException{
 		Robot me = new Robot();
-		me.delay(10000);
+		Thread.sleep(10000);
 		//me.mouseMove(0,0);
 		me.mouseMove(621,344);
 		me.mousePress(InputEvent.BUTTON1_MASK);
@@ -86,6 +87,14 @@ public class Game {
 		me.mousePress(InputEvent.BUTTON1_MASK);
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
+	public void continue2() throws AWTException{
+		Robot me = new Robot();
+		me.delay(100);
+		me.mouseMove(0,0);
+		me.mouseMove(649,635);
+		me.mousePress(InputEvent.BUTTON1_MASK);
+		me.mouseRelease(InputEvent.BUTTON1_MASK);
+	}
 
 	public void skip () throws AWTException{
 		Robot me = new Robot();
@@ -96,6 +105,16 @@ public class Game {
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
 
+	public boolean youWin(){
+		
+		FindPicture test1 = new FindPicture(this.getScreen(100),this.youwin);
+		if(test1.checkImage())return true ;
+		return false ;
+		
+	}
+	 public Game getGame () {
+		 return this ; 
+	 }
 
 
 
@@ -106,13 +125,28 @@ public class Game {
 		g.skip();
 		g.continuee();
 		Client c = new Client() ; 
-		while (true){
-		Thread.sleep(5000);
+		boolean win = false ; 
+		while (!win){
+		//Thread.sleep(0);
 		c.update();
 		c.check();
-		c.clearTable();
+		win = g.youWin();
+		System.out.println(win);
+		//c.clearTable();
 		}
-		
+		win = false ; 
+		System.out.println("you win !!"+win);
+		g.continue2();
+		g.continue2();
+		Recette.resetAliments();
+		while (!win){
+			Thread.sleep(0);
+			c.update();
+			c.check();
+			win = g.youWin();
+			System.out.println(win);
+			//c.clearTable();
+			}
 
 		//Onigiri o = new Onigiri();
 		//California c = new California();
@@ -122,7 +156,6 @@ public class Game {
 
 
 /**
- * il reste à optimiser le traitment des clients --> si un client à déjà été traité pas la peine de le reservir 
- * optimiser le code il y a des fonctions qui pourraient etre raccourcies 
- * et enfin detecter que le niveau 1 est passé et jouer le niveau 2 
+principale tache �� regler : 
+g��rer la caisse, il faut faire gaffe avant de commander on doit avoir assez d'argent sinon on attend 
  */

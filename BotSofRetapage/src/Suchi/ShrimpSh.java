@@ -1,8 +1,13 @@
 package Suchi;
 
 
+
 public class ShrimpSh extends Recette  {
-	
+
+	/**
+	 * Constructeur
+	 * @throws Exception
+	 */
 	public ShrimpSh() throws Exception {
 
 		super();

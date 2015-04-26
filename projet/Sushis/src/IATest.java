@@ -1,4 +1,4 @@
-
+/*
 import static org.junit.Assert.*;
 
 import java.awt.AWTException;
@@ -25,3 +25,4 @@ public class IATest {
 	}
 
 }
+*/

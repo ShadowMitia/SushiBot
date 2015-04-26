@@ -1,4 +1,4 @@
-
+package Sushis.src;
 
 import java.awt.AWTException;
 import java.awt.image.BufferedImage;

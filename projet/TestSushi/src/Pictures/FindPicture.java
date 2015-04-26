@@ -1,6 +1,4 @@
-package Pictures;
-
-
+package TestSushi.src.Pictures;
 
 import java.awt.Point;
 
@@ -20,9 +18,13 @@ public class FindPicture {
 	// source qui est l'image du screen et img et celle qu'on doit trouver dans source 
 	public BufferedImage source  , img ; 
 	// dot est le point des coordonées 
-	public Point dot  ; 
+	private Point dot;
 
-	// constructeur on doit donc y mettre une buffered image qui sera le screen et le path du sprite à chercher
+	/**
+	 * Constructeur
+	 * @param src BufferedImage de l'image sur laquelle chercher
+	 * @param img path vers l'image à chercher dans l'image
+	 */
 	public FindPicture(BufferedImage src , String img){
 		this.loadPictures(img);
 		this.source = src ;
@@ -30,13 +32,21 @@ public class FindPicture {
 		//this.img = resize(this.img,303,116);
 	}
 
+	/**
+	 * Constructeur
+	 * @param src BufferedImage de l'image sur laquelle chercher
+	 * @param img BufferedImage de l'image  à chercher
+	 */
 	public FindPicture(BufferedImage src , BufferedImage img){
 		this.source=src;
 		this.img=img;
 		this.dot=new Point (-1,-1);
 	}
 
-	// loader le sprite dans le buffer img 
+	/**
+	 * Méthode qui charge l'image à chercher dans img
+	 * @param pathImg Chemin vers l'image à chargé
+	 */
 	public  void loadPictures( String pathImg){
 		//File fSrc = new File (pathSrc);
 		File fImg = new File (pathImg);
@@ -44,11 +54,18 @@ public class FindPicture {
 			//source = ImageIO.read(fSrc);
 			this.img = ImageIO.read(fImg);
 		} catch (IOException e) {
-			throw new RuntimeException("impossible to load image");
+			throw new RuntimeException("impossible to load image: " + pathImg);
 		}
 	}
 
 	//renvoie une array list qui contient la ligne "line" de l'image "img"
+
+	/**
+	 * Méthode qui retourne une ArrayList qui contient la ligne sélectionné de l'image img.
+	 * @param img L'image sur laquelle travailler
+	 * @param line Le numéro de la ligne à prendre
+	 * @return ArrayList qui contient les pixels de la ligne sélectionné
+	 */
 	public   ArrayList<Integer> getLine(BufferedImage img , int line ){
 		ArrayList<Integer> l = new ArrayList<Integer>();
 		for (int i = 0; i < img.getWidth(); i++) {
@@ -59,23 +76,35 @@ public class FindPicture {
 		return l ; 
 	}
 
-	// meme principe mais pour les colonnes 
-	public ArrayList<Integer> getColumn(BufferedImage img , int column){
+	// meme principe mais pour les colonnes
+
+	/**
+	 * Méthode qui retourne une ArrayList qui contient la colonne sélectionné de l'image img.
+	 * @param img L'image sur laquelle travailler
+	 * @param column Le numéro de la colonne à prendre
+	 * @return ArrayList qui contient les pixels de la colonne sélectionné
+	 */
+	public ArrayList<Integer> getColumn(BufferedImage img , int column) {
 		ArrayList<Integer> c = new ArrayList<Integer>();
-		for(int i = 0 ; i<img.getHeight();i++){
+		for (int i = 0; i < img.getHeight(); i++) {
 			c.add(img.getRGB(column, i));
 		}
-		return c ; 
+		return c;
 	}
 
-	// la on check si on trouve la colonne dans la grosse image 
+	/**
+	 * méthode qui vérifie si une certaine colonne de l'img se trouve dans source
+	 * @param source L'image source dans laquelle chercher
+	 * @param img L'image dont une colonne va être chercher
+	 * @return true si la colonne existe dans source, false sinon
+	 */
 	public boolean checkColumn (BufferedImage source , BufferedImage img ){
-		ArrayList<Integer> columnImg = getColumn(img,img.getHeight()/2);// une colonne de l'image qu'oin cherche
+		ArrayList<Integer> columnImg = getColumn(img, img.getHeight() / 2);// une colonne de l'image qu'on cherche
 		ArrayList<Integer> columnSrc = new ArrayList<Integer>();//representera les colonnes de l'image source 
 		for(int i = 0 ; i<source.getWidth();i++){
-			columnSrc = getColumn(source,i);
+			columnSrc = getColumn(source, i);
 			if(columnSrc.containsAll(columnImg)){
-				dot.x=i;
+				dot.x = i;
 				return true ; 
 			}
 		}
@@ -83,10 +112,17 @@ public class FindPicture {
 	}
 
 
-	// meme principe mais pour les lignes 
+	// meme principe mais pour les lignes
+
+	/**
+	 * méthode qui vérifie si une certaine ligne de l'img se trouve dans source
+	 * @param source L'image source dans laquelle chercher
+	 * @param img L'image dont une colonne va être chercher
+	 * @return true si la ligne existe dans source, false sinon
+	 */
 	public  boolean checkLine(BufferedImage source , BufferedImage img){
 		ArrayList<Integer> lineImg = getLine(img,img.getHeight()/2);// une ligne de l'image qu'oin cherche
-		ArrayList<Integer> lineSrc = new ArrayList<Integer>();//representera les lignes de l'image source 
+		ArrayList<Integer> lineSrc = new ArrayList<>();//representera les lignes de l'image source
 
 		for (int j = 0; j < source.getHeight(); j++) {
 			lineSrc = getLine(source,j);// retirer les lignes de l'image source 
@@ -95,11 +131,13 @@ public class FindPicture {
 				return true ; 
 			}
 		}
-
 		return false; 
 	}
 
-
+	/**
+	 * Vérifie si l'img existe dans source
+	 * @return true si l'image chercher se trouve dans l'image, false sinon
+	 */
 	public boolean checkImage(){
 		this.checkLine(this.getSrc(), this.getImg());
 		this.checkColumn(this.getSrc(), this.getImg());
@@ -109,29 +147,55 @@ public class FindPicture {
 		return true ; 
 	}
 
-	///////////////////////////////
-	// les getters 				///
-	//////////////////////////////
+	/*
+	Getters
+	 */
 
-	//renvoie l'image source
-	public BufferedImage getSrc(){return this.source;}
-	//renvoie le sprite 
-	public BufferedImage getImg(){return this.img;}
-	//renvoie la coordonnée X
-	public int getX() { return dot.x;}
-	//renvoie la coordonnée Y 
-	public int getY(){ return dot.y;}
+	/**
+	 * Renvoie l'image source de l'objet
+	 * @return
+	 */
+	public BufferedImage getSrc(){
+		return this.source;
+	}
 
+	/**
+	 * Renvoie l'image img de l'objet
+	 * @return
+	 */
+	public BufferedImage getImg(){
+		return this.img;
+	}
+
+	/**
+	 * Renvoie la coordonnée y
+	 * @return
+	 */
+	public int getX() {
+		return dot.x;
+	}
+
+	/**
+	 * Renovie la coordonnée y
+	 * @return
+	 */
+	public int getY(){
+		return dot.y;
+	}
+
+
+
+
+	
 	public static void main (String [] s){
-		//Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
 
-		File fImg = new File ("/Users/sofiane/desktop/L2/S4/POO/projet/sprites/test.png");
+		File fImg = new File ("sprites/test.png");
 		try {
 			//source = ImageIO.read(fSrc);
 			BufferedImage test  = ImageIO.read(fImg);
 
-			FindPicture p = new FindPicture (test , "/Users/sofiane/desktop/L2/S4/POO/projet/sprites/oni.png");
-			JFrame frame = new JFrame ("test");
+			FindPicture p = new FindPicture (test , "sprites/oni.png");
+			JFrame frame = new JFrame ("Johnny");
 			frame.getContentPane().add(new JLabel(new ImageIcon(p.img)));
 			frame.pack();
 			frame.setVisible(true);
@@ -140,14 +204,12 @@ public class FindPicture {
 			System.out.println(p.getX()+"   "+p.getY());
 
 		} catch (IOException e) {
-			throw new RuntimeException("impossible to load image");
+			throw new RuntimeException("Impossible to load image");
 		}
-
 	}
-
 }
 
-/** 
+/*
  * si les deux captures d'ecrans ont étées prises de la même façon ( à partir de du miniprogramme de capture ou à partir des screens du pc ) 
  * la detections se fait sinon elle ne se fait pas le probleme pourrait peut etre venir du format des captures sous mac 
  * aucune idée sur comment regler le probleme ???? 

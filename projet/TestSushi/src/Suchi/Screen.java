@@ -1,7 +1,5 @@
-package Suchi;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
+package TestSushi.src.Suchi;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,22 +10,26 @@ public class Screen {
 
 	private Robot bot;
 	private BufferedImage img;
-	private Dot departGauche;
-	private Dot departDroit;
+	private Point departGauche;
+	private Point departDroit;
 
+	/**
+	 *  Constructeur de la classe
+	 * @param x le temps de délais avant la capture de l'écran
+	 * @throws Exception
+	 */
 	public Screen(int x) throws Exception {
-
 		Thread.sleep(1000 * x);
 		this.img = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-		this.departGauche = new Dot((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/6, (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2);
-		this.departDroit = new Dot(5 * (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/6,this.departGauche.y);
-
+		this.departGauche = new Point((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 6, (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2);
+		this.departDroit = new Point(5 * (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 6, this.departGauche.y);
 	}
 
-	/*
-	 * 
-	 * La fonction ci-dessous convertit un "pixel numérique", en rouge, vert,
-	 * bleu. L'alpha nous on s'en tape. Un peu comme en processing ;)
+	/**
+	 * La fonction ci-dessous convertit un "pixel numérique", en rouge, vert, bleu. On ignore l'alpha.
+	 * @param x coordonnée x à convertir
+	 * @param y coordonnée y à convertir
+	 * @return le pixel convertit
 	 */
 	public int[] getPixelARGB(int x, int y) {
 		int pixel = this.img.getRGB(x, y);
@@ -45,6 +47,10 @@ public class Screen {
 		return RGB;
 	}
 
+	/**
+	 *
+	 * @param name
+	 */
 	public void saveImage(String name) {
 
 		try {
@@ -60,36 +66,39 @@ public class Screen {
 	 * l'image horizontalement, dans le sens de la largeur, dans la direction indiquée par le caractère "direction", avec
 	 * e = est, w = west.
 	 */
-	
-	public int lookHorizontal(char direction, int x){
-		
-		if(direction == 'e'){
-			if(this.img.getRGB(this.departGauche.x, this.departGauche.y) != this.img.getRGB(x, this.departGauche.y)) return x;
-			else {
-				
-				if(direction == 'e') return lookHorizontal(direction, x+1);
-				
-				else return lookHorizontal(direction, x-1);
-			}
-		}
-		else {
-			if(this.img.getRGB(this.departDroit.x, this.departDroit.y) != this.img.getRGB(x, this.departDroit.y)) return x;
-			else {
-				
-				if(direction == 'e') return lookHorizontal(direction, x+1);
-				
-				else return lookHorizontal(direction, x-1);
-			}
-		}
-		
-		
-		
-	}
-	/* 
-	 * La fonction du dessous renvoie le premier pixel dont la couleur est différente du pixel de départ, en parcourant l'image
-	 * dans le sens de la hauteur, dans la direction indiquée par le caractère "direction", avec n = nord, s = sud.
+
+	/**
+	 * La fonction renvoie la coordonnée x du premier pixel dont la couleur est différente du pixel de départ.
+	 * Elle parcourt l'image dans la largeur dans la direction indiquée.
+	 * @param direction La direction de parcourt: soit e pour vers la droite et w pour vers la gauche
+	 * @param x la ligne à vérifier
+	 * @return la coordonnée x du premier pixel différent
 	 */
-	
+	public int lookHorizontal(char direction, int x) {
+		if (direction == 'e') {
+			if (this.img.getRGB(this.departGauche.x, this.departGauche.y) != this.img.getRGB(x, this.departGauche.y))
+				return x;
+			else {
+				if (direction == 'e') return lookHorizontal(direction, x + 1);
+				else return lookHorizontal(direction, x - 1);
+			}
+		} else {
+			if (this.img.getRGB(this.departDroit.x, this.departDroit.y) != this.img.getRGB(x, this.departDroit.y))
+				return x;
+			else {
+				if (direction == 'e') return lookHorizontal(direction, x + 1);
+				else return lookHorizontal(direction, x - 1);
+			}
+		}
+	}
+
+	/**
+	 * La fonction renvoie la coordonnée y du premier pixel dont la couleur est différente du pixel de départ.
+	 * Elle parcourt l'image sur la hauteur dans la direction indiquée.
+	 * @param direction peut être soit n pour regarder vers le haut ou s pour vers le bas
+	 * @param y Donne la coordonnée y du premier pixel de couleur différente du pixel original
+	 * @return
+	 */
 	public int lookVertical(char direction, int y) {
 		
 		if(this.img.getRGB(this.departGauche.x, this.departGauche.y) != this.img.getRGB(this.departGauche.x, y))return y;
@@ -101,27 +110,42 @@ public class Screen {
 		}
 		
 	}
-	
-	
+
+	/**
+	 *
+	 * @return
+	 */
 	public BufferedImage getImg (){
 		
 		return this.img;
 		
 	}
 
-	public Dot getDepartGauche () {
+	/**
+	 *
+	 * @return la coordonnée du point en à gauche
+	 */
+	public Point getDepartGauche () {
 		
 		return this.departGauche;
 		
 	}
-	
-	public Dot getDepartDroit () {
+
+	/**
+	 *
+	 * @return la coordonnée du point en haut à droite
+	 */
+	public Point getDepartDroit () {
 		
 		return this.departDroit;
 		
 	}
 
-public int[] getGameArea(){
+	/**
+	 * Récupére les coordonnées de la zone de jeu dans l'écran
+	 * @return un tableau des coordonnées de la zone de jeu
+	 */
+	public int[] getGameArea(){
 		
 		int[] res = new int[4]; // 1ere case, x du point haut-gauche, 2eme, y du point haut-gauche, 3eme largeur, 4eme hauteur.
 		
@@ -150,14 +174,15 @@ public int[] getGameArea(){
 		
 		res[2] = width;
 		res[3] = height;
-		
-		
-		
+
 		return res;
 		
 	}
 
-	
+	/**
+	 *  Méthode qui crée un screenshot de la zone de jeu
+	 * @param name le fichier dans lequel stocker le screenshot
+	 */
 	public void saveGameArea(String name){
 		
 		int[] tab = this.getGameArea();
@@ -171,27 +196,5 @@ public int[] getGameArea(){
 		}
 		
 	}
-	
 }
 
-class Dot {
-	
-	int x;
-    int y;
-	
-	public Dot(int x, int y){
-		
-		this.x = x;
-		this.y = y;
-		
-		
-	}
-	
-	public void setPos(int x, int y) {
-		
-		this.x = x;
-		this.y = y;
-		
-	}
-		
-}

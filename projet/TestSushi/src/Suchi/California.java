@@ -1,4 +1,4 @@
-package Suchi;
+package TestSushi.src.Suchi;
 
 import java.awt.AWTException;
 import java.awt.Point;
@@ -6,8 +6,13 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 
 public class California extends Recette {
-	private Point Rice,Noori,Roe ; 
+	private Point Rice,Noori,Roe ;
 
+	/**
+	 * Constructeur, va appeller les différentes méthodes pour créer un california
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	California() throws AWTException, InterruptedException {
 
 		this.Rice=new Point(274,543);   // mettre des rice.x et rice.y
@@ -18,6 +23,11 @@ public class California extends Recette {
 
 	}
 
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void make() throws AWTException, InterruptedException{
 		Robot me = new Robot();
 		super.useNoori();
@@ -38,6 +48,12 @@ public class California extends Recette {
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void validate () throws AWTException, InterruptedException {
 		Robot me = new Robot();
 		me.delay(super.timeTapis);

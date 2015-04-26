@@ -1,9 +1,8 @@
-package Suchi;
-import java.awt.AWTException;
-import java.awt.Desktop;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
+package TestSushi.src.Suchi;
+
+import TestSushi.src.Pictures.FindPicture;
+
+import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -13,19 +12,21 @@ import java.net.URISyntaxException;
 
 import javax.imageio.ImageIO;
 
-import Pictures.FindPicture;
 
 
 public class Game {
-	/*constructeur
-	 * prend l'url du jeu pour debuter
+
+	private String youwin1 = "sprites/youwin.png";
+	private String youwin2 = "sprites/youWin2.png";
+
+	/**
+	 * Constructeur
+	 * @param url l'url du jeu
 	 */
-
-	private String youwin1 = "/Users/sofiane/desktop/L2/S4/POO/projet/sprites/youwin.png";
-	private String youwin2 = "/Users/sofiane/desktop/L2/S4/POO/projet/sprites/youWin2.png";
-
 	public Game(String url){
 		try {
+			GraphicsEnvironment graphEnv = GraphicsEnvironment.getLocalGraphicsEnvironment();
+
 			Desktop d = Desktop.getDesktop();
 			d.browse(new URI(url));		
 		} catch (URISyntaxException e) {
@@ -33,8 +34,10 @@ public class Game {
 		}
 	}
 
-	/*methode qui prend un screen apres x temps
-	 * renvoit un screen deja cadré sur le jeu  
+	/**
+	 * méthode qui prend un screen après x millisecondes
+	 * @param x le temps de délai en millisecondes
+	 * @return l'image de la zone de jeu déjà cadré
 	 */
 	public static BufferedImage getScreen(int x){
 		BufferedImage img	 = null ; 
@@ -42,23 +45,31 @@ public class Game {
 		try{
 			Thread.sleep(x);	
 			img = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-		}catch (Exception e){} ;
+		}catch (Exception e){
 
-		if (img==null) throw new RuntimeException("pas d'image");
+		}
+
+		if (img==null) throw new RuntimeException("Pas d'image");
 		return img;//.getSubimage(img.getWidth()/8,img.getHeight()/12,img.getWidth()-2*img.getWidth()/8,img.getHeight()-img.getHeight()/12);
 
 	}
 
-	/*methode qui crée l'image du screen (png)
-	 * prend en param une BufferedImage
+	/**
+	 * Méthode qui crée l'image du screen au format png
+	 * @param image Un BufferedImage a sauvegardé
 	 */
 	public void createScreenImage (BufferedImage image){
 		try {
-			ImageIO.write(image, "png", new File("/Users/sofiane/desktop/L2/S4/POO/projet/sprites/screenshot.png"));
+			ImageIO.write(image, "png", new File("screenshots/screenshot.png"));
 		} catch (IOException e) {
 		}
 	}
 
+	/**
+	 *
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	public void start() throws AWTException, InterruptedException{
 		Robot me = new Robot();
 		Thread.sleep(10000);
@@ -67,6 +78,11 @@ public class Game {
 		me.mousePress(InputEvent.BUTTON1_MASK);
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
+
+	/**
+	 *
+	 * @throws AWTException
+	 */
 	public void continuee () throws AWTException{
 		Robot me = new Robot();
 		me.delay(100);
@@ -75,6 +91,11 @@ public class Game {
 		me.mousePress(InputEvent.BUTTON1_MASK);
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
+
+	/**
+	 *
+	 * @throws AWTException
+	 */
 	public void continue2() throws AWTException{
 		Robot me = new Robot();
 		me.delay(100);
@@ -84,6 +105,10 @@ public class Game {
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
 
+	/**
+	 *
+	 * @throws AWTException
+	 */
 	public void skip () throws AWTException{
 		Robot me = new Robot();
 		me.delay(100);
@@ -93,25 +118,37 @@ public class Game {
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public boolean youWinLevel1(){
 
 		FindPicture test1 = new FindPicture(Game.getScreen(100),this.youwin1); // changé : le this.getScreen en Game.getScreen
-		if(test1.checkImage())return true ;
+		if(test1.checkImage()) return true ;
 		return false ;
 
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public boolean youWinLevel2(){
 
-		FindPicture test1 = new FindPicture(Game.getScreen(100),this.youwin2); // changé : le this.getScreen en Game.getScreen
+		FindPicture test1 = new FindPicture(Game.getScreen(100), this.youwin2); // changé : le this.getScreen en Game.getScreen
 		if(test1.checkImage())return true ;
 		return false ;
 
 	}
-	public Game getGame () {
-		return this ; 
-	}			
 
+	/**
+	 *
+	 * @param g
+	 * @param c
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	public void startLevel1(Game g , Client c ) throws AWTException, InterruptedException{
 		g.start();
 		g.continuee();
@@ -125,17 +162,31 @@ public class Game {
 		}
 	}
 
+	/**
+	 *
+	 * @param g
+	 * @param c
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	public void startLevel2 (Game g , Client c ) throws AWTException, InterruptedException{
 		g.continue2();
 		g.continue2();
 		Recette.resetAliments();
-		while (!g.youWinLevel2()){
+		while (!g.youWinLevel1()){
 			//				Thread.sleep(0);
 			c.update();
 			c.check();
 		}
 	}
 
+	/**
+	 *
+	 * @param g
+	 * @param c
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	public void startLevel3( Game g , Client c ) throws AWTException, InterruptedException{
 		g.continue2();
 		g.continue2();
@@ -150,8 +201,7 @@ public class Game {
 
 
 	public static void main (String [] args) throws AWTException, InterruptedException {
-		//Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
-		Game g = new Game ("http://redcloud.fr/sushi.swf");
+		Game g = new Game ("http://www.miniclip.com/games/sushi-go-round/en/sushigoround.swf");
 		Client c = new Client() ; 
 		g.startLevel1(g, c);
 		g.startLevel2(g, c);

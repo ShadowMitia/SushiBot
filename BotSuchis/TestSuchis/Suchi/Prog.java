@@ -1,4 +1,5 @@
 package Suchi;
+
 import java.awt.Desktop;
 import java.awt.Rectangle;
 import java.awt.Robot;

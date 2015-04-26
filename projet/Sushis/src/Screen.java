@@ -1,7 +1,6 @@
+package Sushis.src;
 
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,8 +8,8 @@ import javax.imageio.ImageIO;
 
 public class Screen {
 	private BufferedImage img;
-	private Dot departGauche;
-	private Dot departDroit;
+	private Point departGauche;
+	private Point departDroit;
 
 	public Screen(int x) throws Exception {
 		
@@ -18,9 +17,9 @@ public class Screen {
 		
 		this.img = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 		
-		this.departGauche = new Dot((int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 6), (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2, false);
+		this.departGauche = new Point((int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 6), (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2);
 		
-		this.departDroit = new Dot(5 *  Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 6, this.departGauche.y, false);
+		this.departDroit = new Point((int) (5 *  Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 6) , (int) this.departGauche.y);
 		
 	}
 
@@ -84,11 +83,11 @@ public class Screen {
 		return this.img;
 	}
 
-	public Dot getDepartGauche() {
+	public Point getDepartGauche() {
 		return this.departGauche;
 	}
 
-	public Dot getDepartDroit() {
+	public Point getDepartDroit() {
 		return this.departDroit;
 	}
 

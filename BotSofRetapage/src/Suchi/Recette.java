@@ -1,5 +1,6 @@
 package Suchi;
 
+
 import java.awt.AWTException;
 
 public abstract class Recette {
@@ -11,5 +12,18 @@ public abstract class Recette {
 		ia = new Ia();
 		
 	}
+
+
+	/**
+	 * Méthode qui va cherche les ingrédients de la recette
+	 * @throws Exception
+	 */
+	abstract public void make() throws Exception;
+
+	/**
+	 *  Méthode qui valide la recette et la met sur le tapis roulant
+	 * @throws Exception
+	 */
+	abstract public void validate () throws Exception;
 
 }

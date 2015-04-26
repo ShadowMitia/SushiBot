@@ -1,15 +1,10 @@
 package Suchi;
-import java.awt.AWTException;
-import java.awt.Desktop;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.image.BufferedImage;
+import Pictures.Recon;
+
+import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import Pictures.Recon;
 
 
 public class Game {
@@ -17,12 +12,16 @@ public class Game {
 	 * prend l'url du jeu pour debuter
 	 */
 
-	private BufferedImage youwin1;
-	private String youwin2 = "/sprites/youWin2.png";
+	private String youwin1 = "sprites/youwin.png";
+	private String youwin2 = "sprites/youwin.png";
 	private static Point origin;
 	private static Rectangle gameZone;
-	private static Rectangle zoneYouWin;
-	
+	public static Rectangle zoneYouWin;
+
+	/**
+	 * Constructeur. Point d'entrée du programme, nécessite l'url du jeu à jouer
+	 * @param url URL du jeu à jouer
+	 */
 	public Game(String url){
 		
 		try {
@@ -35,43 +34,64 @@ public class Game {
 		
 	}
 
-	public void setZoneWin() {
+	/**
+	 *
+	 */
+	public static void setZoneWin() {
 		
-		int height = Game.getGameZone().height; int width = Game.getGameZone().width;
-		Dot pouet = new Dot((272. / 1236.) * width, (98. / 928.) * height);
-		zoneYouWin = new Rectangle(pouet.x, pouet.y, (int)((469. / 1277.)*width), (int)((77./959.)*height));
+		Dot temp = new Dot((407. / 1236.) * gameZone.width, (226. / 928.) * gameZone.height);
+		System.out.println("Debug : x:" + temp.x + " , y:" + temp.y);
+		zoneYouWin = new Rectangle(temp.x, temp.y, (int)((469. / 1277.)*gameZone.width), (int)((77./959.)*gameZone.height) );
 		
 	}
-	
+
+	/**
+	 *
+	 * @return
+	 */
 	public static Point getOrigin() {
 		
 		return origin;
 		
 	}
+
+	/**
+	 *
+	 * @param newOrigin
+	 */
 	public static void setOrigin(Point newOrigin) {
 		
 		origin = newOrigin;
 		
 	}
+
+	/**
+	 *
+	 * @return
+	 */
 	public static Rectangle getGameZone() {
 		
 		return gameZone;
 		
 	}
+
+	/**
+	 *
+	 * @param newGameZone
+	 */
 	public static void setGameZone(Rectangle newGameZone) {
 		
 		gameZone = newGameZone;
-		zoneYouWin = new Rectangle((new Dot(407, 226)).x, (new Dot(407, 226)).y, 469, 77);
+		zoneYouWin = new Rectangle((new Dot((407./1236.)*gameZone.width, (226./959.)*gameZone.height)).x, (new Dot((407./1236.)*gameZone.width, (226./959.)*gameZone.height)).y,
+				(int)((469./1274.)*gameZone.width), (int)((77./959.)*gameZone.height));
+		//setZoneWin();
 		
 	}
-	
-	/*public void gameZone(int temps) throws Exception {
-		
-		Screen scr = new Screen(temps);
-		
-		
-	}*/
-	
+
+	/**
+	 *
+	 * @throws Exception
+	 */
 	public void startGame() throws Exception{
 		
 		new Ia().clickZone("Start");
@@ -79,20 +99,24 @@ public class Game {
 		new Ia().clickZone("Continue");
 		
 	}
-	public void setYouWin(){
-		
-		this.youwin1 = new Recon().loadSingleSpriteByPath("sprites/youwin.png");
-		
-	}
-	
+
+	/**
+	 *
+	 * @return
+	 * @throws AWTException
+	 */
 	public boolean youWinLevel1() throws AWTException{
 
-		
-		return new Recon().sontEgales(this.youwin1,
-				new Robot().createScreenCapture(zoneYouWin), 5);
 
+		return new Recon().sontEgales(new Recon().loadSingleSpriteByPath(this.youwin2),
+				new Robot().createScreenCapture(zoneYouWin), 5);
 	}
 
+	/**
+	 *
+	 * @return
+	 * @throws AWTException
+	 */
 	public boolean youWinLevel2() throws AWTException{
 
 
@@ -100,24 +124,28 @@ public class Game {
 				new Robot().createScreenCapture(zoneYouWin), 5);
 
 	}
-	
-	public Game getGame () {
-		
-		return this ;
-		
-	}			
 
+	/**
+	 *
+	 * @param c
+	 * @throws Exception
+	 */
 	public void startLevel1(Client c ) throws Exception{
 		
 		startGame();
-		setYouWin();
 		while (!youWinLevel1()){
+			System.out.println("Toujours pas gagné");
 			Thread.sleep(0);
 			c.update();
 			c.check();
 		}
 	}
 
+	/**
+	 *
+	 * @param c
+	 * @throws Exception
+	 */
 	public void startLevel2 (Client c ) throws Exception{
 		new Ia().clickZone("Continue");
 		new Ia().clickZone("Continue");
@@ -129,6 +157,11 @@ public class Game {
 		}
 	}
 
+	/**
+	 *
+	 * @param c
+	 * @throws Exception
+	 */
 	public void startLevel3(Client c ) throws Exception{
 		new Ia().clickZone("Continue");
 		new Ia().clickZone("Continue");
@@ -153,7 +186,7 @@ public class Game {
 	
 	public static void main (String []args) {
 		
-		Toolbox tb = new Toolbox(100,300);
+		Toolbox tb = new Toolbox(75,75);
 		
 	}
 	

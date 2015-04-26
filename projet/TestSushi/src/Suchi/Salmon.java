@@ -1,4 +1,4 @@
-package Suchi;
+package TestSushi.src.Suchi;
 
 import java.awt.AWTException;
 import java.awt.Point;
@@ -6,7 +6,13 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 
 public class Salmon extends Recette {
-	private Point Rice,Noori,Saumon ; 
+	private Point Rice,Noori,Saumon;
+
+	/**
+	 *  Constructeur pour créer un salmon
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	Salmon() throws AWTException, InterruptedException {
 
 		this.Rice=new Point(274,543);
@@ -16,6 +22,12 @@ public class Salmon extends Recette {
 		this.validate();
 
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void make() throws AWTException, InterruptedException{
 
 		super.useRice();
@@ -45,6 +57,12 @@ public class Salmon extends Recette {
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 
 	}
+
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void validate () throws AWTException, InterruptedException {
 		Robot me = new Robot();
 		me.delay(super.timeTapis);
@@ -52,8 +70,6 @@ public class Salmon extends Recette {
 		me.mousePress(InputEvent.BUTTON1_MASK);
 		me.mouseRelease(InputEvent.BUTTON1_MASK);
 		me.delay(super.timeTapis);
-
-
 	}
 
 

@@ -1,4 +1,4 @@
-package Suchi;
+package TestSushi.src.Suchi;
 
 
 import java.applet.*;
@@ -7,12 +7,18 @@ import java.awt.event.*;
 
 public class ScreenMouse extends Applet implements ActionListener{
 
+   /**
+    *
+    * @param evt
+    */
    public void actionPerformed(ActionEvent evt) {
       String composant = evt.getActionCommand();
       showStatus("Action sur le composant : " + composant);
    }
 
-
+    /**
+     *
+     */
    public void init() {
       super.init();
 

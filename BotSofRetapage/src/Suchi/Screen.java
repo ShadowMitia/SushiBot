@@ -1,18 +1,21 @@
 package Suchi;
 
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
 
 public class Screen {
 	private BufferedImage img;
 	private Dot departGauche;
 	private Dot departDroit;
 
+	/**
+	 * Constructeur.
+	 * @param x Le délai avant de prendre la capture de l'écran
+	 * @throws Exception
+	 */
 	public Screen(int x) throws Exception {
 
 		Thread.sleep(x);
@@ -28,6 +31,10 @@ public class Screen {
 
 	}
 
+	/**
+	 * Méthode qui permet de sauvegarder l'image dans un fichier au format .png
+	 * @param name Le nom du fichier dans lequel sauvegardé
+	 */
 	public void saveImage(String name) {
 
 		try {
@@ -39,11 +46,14 @@ public class Screen {
 		}
 	}
 
-	/*
-	 * La fonction du dessous renvoie le x du premier pixel dont la couleur est
-	 * diff??????rente du pixel de d??????part, en parcourant l'image horizontalement,
-	 * dans le sens de la largeur, dans la direction indiqu??????e par le caract??????re
+	/**
+	 * La méthode renvoie le x du premier pixel dont la couleur est différente du pixel de départ, en parcourant
+	 * l'image horizontalement, dans le sens de la largeur, dans la direction indiquée par le caractère
 	 * "direction", avec e = est, w = west.
+	 *
+	 * @param direction "e" ou "w"
+	 * @param x int le pixel sur lequel commençé
+	 * @return int le pixel différent trouvé
 	 */
 	public int lookHorizontal(char direction, int x) {
 
@@ -68,11 +78,14 @@ public class Screen {
 		}
 	}
 
-	/*
-	 * La fonction du dessous renvoie le premier pixel dont la couleur est
-	 * diff??????rente du pixel de d??????part, en parcourant l'image dans le sens de la
-	 * hauteur, dans la direction indiqu??????e par le caract??????re "direction", avec
-	 * n = nord, s = sud.
+
+
+	/**
+	 * La méthode renvoie le premier pixel dont la couleur est différente du pixel de départ, en parcourant l'image
+	 * dans le sens de la hauteur, dans la direction indiquée par le caractère "direction", avec n = nord, s = sud.
+	 * @param direction "n" ou "s"
+	 * @param y int le pixel de départ pour le scan
+	 * @return int le pixel différent de la couleur d'origine
 	 */
 	public int lookVertical(char direction, int y) { // si le pixel est
 
@@ -81,28 +94,47 @@ public class Screen {
 						(int) this.departGauche.y) == this.img.getRGB(
 						(int) this.departGauche.x, (int) y))) {
 
-			if (direction == 'n')
+			if (direction == 'n') {
 				return lookVertical(direction, y - 1);
-			else
+			}
+			else {
 				return lookVertical(direction, y + 1);
-
-		} else
+			}
+		} else{
 			return y;
+		}
+
 
 	}
 
+	/**
+	 * Accesseur qui retourne l'image de l'écran
+	 * @return BufferedImage
+	 */
 	public BufferedImage getImg() {
 		return this.img;
 	}
 
+	/**
+	 * Accesseur qui permet d'accéder à la coordonnée de départ gauche
+	 * @return int
+	 */
 	public Dot getDepartGauche() {
 		return this.departGauche;
 	}
 
+	/**
+	 * Accesseur qui permet d'accéder à la coordonnée de départ droit
+	 * @return int
+	 */
 	public Dot getDepartDroit() {
 		return this.departDroit;
 	}
 
+	/**
+	 * Méthode qui permet de trouver la zone de jeu sur l'écran
+	 * @return Rectangle ayant les coordonnées de la zone de jeu dans le repère de l'écran
+	 */
 	public Rectangle getGameArea() {
 
 //		Point departGaucheLocal = new Point(this.departGauche.x,
@@ -137,20 +169,23 @@ public class Screen {
 			
 			//System.out.println("Did it x1");
 
-		} while (!((double) width / (double) height <= 1.35 && (double) width
-				/ (double) height >= 1.30));
+		} while (!((double) width / (double) height <= 1.35 && (double) width / (double) height >= 1.30));
 
 
 		return new Rectangle(xNewFrame, yNewFrame, width, height);
 
 	}
 
+	/**
+	 * Méthode qui permet de sauvegarder la zone de jeu dans un fichier .png
+	 * @param name Le nom du fichier dans lequel sauvegardé l'image
+	 * @throws IOException
+	 */
 	public void saveGameArea(String name) throws IOException {
 
 		Rectangle rec = getGameArea();
 
-		BufferedImage reduc = this.img.getSubimage(rec.x, rec.y, rec.width,
-				rec.height);
+		BufferedImage reduc = this.img.getSubimage(rec.x, rec.y, rec.width, rec.height);
 		
 		System.out.println(rec.x + " " + rec.y + " " + rec.width + " " + rec.height);
 

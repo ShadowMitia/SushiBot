@@ -1,13 +1,7 @@
 package Pictures;
 
-
-import Suchi.Game;
-import Suchi.Onigiri;
-
-import java.awt.AWTException;
 import java.awt.Point;
-import java.awt.Robot;
-import java.awt.event.InputEvent;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,14 +13,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
-
 public class FindPicture {
 	// source qui est l'image du screen et img et celle qu'on doit trouver dans source 
 	public BufferedImage source  , img ; 
-	// dot est le point des coordonées 
+	// dot est le point des coordon��es 
 	public Point dot  ; 
 
-	// constructeur on doit donc y mettre une buffered image qui sera le screen et le path du sprite à chercher
+	// constructeur on doit donc y mettre une buffered image qui sera le screen et le path du sprite �� chercher
 	public FindPicture(BufferedImage src , String img){
 		this.loadPictures(img);
 		this.source = src ;
@@ -121,20 +114,20 @@ public class FindPicture {
 	public BufferedImage getSrc(){return this.source;}
 	//renvoie le sprite 
 	public BufferedImage getImg(){return this.img;}
-	//renvoie la coordonnée X
+	//renvoie la coordonn��e X
 	public int getX() { return dot.x;}
-	//renvoie la coordonnée Y 
+	//renvoie la coordonn��e Y 
 	public int getY(){ return dot.y;}
 	
 	public static void main (String [] s){
 		//Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
 
-		File fImg = new File ("/Users/sofiane/desktop/test.png");
+		File fImg = new File ("/Users/sofiane/desktop/scSAL.png");
 		try {
 			//source = ImageIO.read(fSrc);
 			BufferedImage test  = ImageIO.read(fImg);
 			
-			FindPicture p = new FindPicture (test , "/Users/sofiane/desktop/cali.png");
+			FindPicture p = new FindPicture (test , "/Users/sofiane/desktop/salmon.png");
 			 JFrame frame = new JFrame ("test");
 			 frame.getContentPane().add(new JLabel(new ImageIcon(p.source)));
 			 frame.pack();

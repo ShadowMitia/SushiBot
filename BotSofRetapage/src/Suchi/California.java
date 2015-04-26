@@ -1,7 +1,11 @@
 package Suchi;
 
 public class California extends Recette {
- 
+
+	/**
+	 * Constructeur
+	 * @throws Exception
+	 */
 	California() throws Exception {
 
 		super();
@@ -10,6 +14,7 @@ public class California extends Recette {
 		Thread.sleep(2000);
 
 	}
+
 
 	public void make() throws Exception{
 		
@@ -22,6 +27,8 @@ public class California extends Recette {
 		ia.clickZone("Nori");
 		
 	}
+
+
 	public void validate () throws Exception {
 		
 		ia.clickZone("SushiMakerZone");

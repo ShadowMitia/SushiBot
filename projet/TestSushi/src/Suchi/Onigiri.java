@@ -1,4 +1,4 @@
-package Suchi;
+package TestSushi.src.Suchi;
 
 import java.awt.AWTException;
 import java.awt.Point;
@@ -6,7 +6,13 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 
 public class Onigiri extends Recette{
-	private Point Rice,Noori ; 	
+	private Point Rice,Noori ;
+
+	/**
+	 * Constructeur pour créer un onigri
+	 * @throws AWTException
+	 * @throws InterruptedException
+	 */
 	public Onigiri() throws AWTException, InterruptedException{
 		this.Rice=new Point(274,543);
 		this.Noori=new Point(211,617);
@@ -15,6 +21,11 @@ public class Onigiri extends Recette{
 
 	}
 
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void make() throws AWTException, InterruptedException{
 		Robot me = new Robot();
 		super.useRice();
@@ -40,6 +51,11 @@ public class Onigiri extends Recette{
 
 	}
 
+    /**
+     *
+     * @throws AWTException
+     * @throws InterruptedException
+     */
 	public void validate () throws AWTException, InterruptedException {
 
 		Robot me = new Robot();

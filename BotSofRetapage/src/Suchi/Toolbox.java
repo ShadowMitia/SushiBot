@@ -1,15 +1,9 @@
 package Suchi;
 
-import java.awt.AWTException;
-import java.awt.FlowLayout;
-import java.awt.HeadlessException;
-import java.awt.Point;
-import java.awt.Rectangle;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
 
 public class Toolbox extends JFrame implements ActionListener {
 
@@ -33,7 +27,7 @@ public class Toolbox extends JFrame implements ActionListener {
 		this.setAlwaysOnTop(true);
 		this.setVisible(true);
 		
-		this.detect = new JButton("Let's Go Johnny!");
+		this.detect = new JButton("GO");
 		this.detect.addActionListener(this);
 		this.add(this.detect);
 		

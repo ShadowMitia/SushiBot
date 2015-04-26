@@ -1,3 +1,4 @@
+package Sushis.src;
 
 public class Prog {
 	public static void main(String[] args) throws Exception {

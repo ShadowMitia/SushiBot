@@ -1,4 +1,4 @@
-
+package Sushis.src;
 
 import java.awt.AWTException;
 import java.awt.BorderLayout;
@@ -138,8 +138,7 @@ public class ToolBox extends JFrame implements ActionListener {
 		try {
 
 			Desktop d = Desktop.getDesktop();
-			d.browse(new URI(
-					"http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf"));
+			d.browse(new URI("http://www.miniclip.com/games/sushi-go-round/en/sushigoround.swf"));
 
 		} catch (IOException | URISyntaxException e) {
 		}

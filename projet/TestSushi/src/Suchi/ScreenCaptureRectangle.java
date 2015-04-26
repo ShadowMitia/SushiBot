@@ -1,4 +1,4 @@
-package Suchi;
+package TestSushi.src.Suchi;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
@@ -15,6 +15,10 @@ public class ScreenCaptureRectangle {
 	Rectangle captureRect;
 	public BufferedImage screenCopy ;
 
+	/**
+	 * Constructeur
+	 * @param screen
+	 */
 	ScreenCaptureRectangle(final BufferedImage screen) {
 		screenCopy=  new BufferedImage(screen.getWidth(),screen.getHeight(), screen.getType());//init du  panel 
 		final JLabel screenLabel = new JLabel(new ImageIcon(screenCopy));// le screen dans le panel 
@@ -25,8 +29,7 @@ public class ScreenCaptureRectangle {
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(screenScroll, BorderLayout.CENTER);
 
-		final JLabel selectionLabel = new JLabel(
-				"Séléctionnez ce que vous voulez couper");
+		final JLabel selectionLabel = new JLabel("Séléctionnez ce que vous voulez couper");
 		panel.add(selectionLabel, BorderLayout.SOUTH);
 
 		repaint(screen, screenCopy);
@@ -50,8 +53,7 @@ public class ScreenCaptureRectangle {
 			@Override
 			public void mouseDragged(MouseEvent me) {
 				Point end = me.getPoint();
-				captureRect = new Rectangle(start,
-						new Dimension(end.x-start.x, end.y-start.y));
+				captureRect = new Rectangle(start, new Dimension(end.x-start.x, end.y-start.y));
 				repaint(screen, screenCopy);
 				screenLabel.repaint();
 				selectionLabel.setText("Rectangle: " + captureRect);
@@ -65,11 +67,15 @@ public class ScreenCaptureRectangle {
 		try {
 			ImageIO.write(screen.getSubimage(this.captureRect.x, this.captureRect.y, this.captureRect.width, this.captureRect.height) , "png", new File("/Users/sofiane/desktop/screenshot10.png"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 *
+	 * @param orig
+	 * @param copy
+	 */
 	public void repaint(BufferedImage orig, BufferedImage copy) {
 		// pour dessiner sur le panel on doit passer par un graphics
 		Graphics2D g = copy.createGraphics();
@@ -86,8 +92,7 @@ public class ScreenCaptureRectangle {
 	public static void main(String[] args) throws Exception {
 		Robot robot = new Robot();
 		//Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
-		BufferedImage game = Game.getScreen(2000);
-
+		final BufferedImage game = Game.getScreen(2000);
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				new ScreenCaptureRectangle(game);

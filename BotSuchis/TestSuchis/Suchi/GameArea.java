@@ -1,4 +1,5 @@
 package Suchi;
+
 public class GameArea {
 	private int x;
 	private int y;

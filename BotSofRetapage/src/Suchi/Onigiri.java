@@ -1,8 +1,13 @@
 package Suchi;
 
 
+
 public class Onigiri extends Recette{
-	 	
+
+	/**
+	 * Constructeur
+	 * @throws Exception
+	 */
 	public Onigiri() throws Exception{
 		
 		super();

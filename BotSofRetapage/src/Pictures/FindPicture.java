@@ -19,10 +19,10 @@ import javax.swing.JLabel;
 public class FindPicture {
 	// On cherche l'image source dans l'image img
 	public BufferedImage source  , img ; 
-	// dot est le point des coordon��es 
+	// dot est le point des coordon������es 
 	public Point dot  ; 
 
-	// constructeur on doit donc y mettre une buffered image qui sera le screen et le path du sprite à chercher
+	// constructeur on doit donc y mettre une buffered image qui sera le screen et le path du sprite �� chercher
 	
 	public FindPicture(BufferedImage src , String img){
 		this.loadPictures(img);
@@ -118,38 +118,9 @@ public class FindPicture {
 	public BufferedImage getSrc(){return this.source;}
 	//renvoie le sprite 
 	public BufferedImage getImg(){return this.img;}
-	//renvoie la coordonn��e X
+	//renvoie la coordonn������e X
 	public int getX() { return dot.x;}
-	//renvoie la coordonn��e Y 
+	//renvoie la coordonn������e Y 
 	public int getY(){ return dot.y;}
 
-	public static void main (String [] s){
-		//Game g = new Game ("http://www.jeux-flash-gratuits.biz/games/sushi-go-round.swf");
-
-		File fImg = new File ("/Users/sofiane/desktop/L2/S4/POO/projet/sprites/test.png");
-		try {
-			//source = ImageIO.read(fSrc);
-			BufferedImage test  = ImageIO.read(fImg);
-
-			FindPicture p = new FindPicture (test , "/Users/sofiane/desktop/L2/S4/POO/projet/sprites/oni.png");
-			JFrame frame = new JFrame ("test");
-			frame.getContentPane().add(new JLabel(new ImageIcon(p.img)));
-			frame.pack();
-			frame.setVisible(true);
-			p.checkColumn(p.source, p.img);
-			p.checkLine(p.source, p.img);
-			System.out.println(p.getX()+"   "+p.getY());
-
-		} catch (IOException e) {
-			throw new RuntimeException("impossible to load image");
-		}
-
-	}
-
 }
-
-/** 
- * si les deux captures d'ecrans ont ��t��es prises de la m��me fa��on ( �� partir de du miniprogramme de capture ou �� partir des screens du pc ) 
- * la detections se fait sinon elle ne se fait pas le probleme pourrait peut etre venir du format des captures sous mac 
- * aucune id��e sur comment regler le probleme ???? 
- */

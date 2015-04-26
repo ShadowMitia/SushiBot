@@ -154,4 +154,15 @@ public class Recon {
 		
 	}
 	
+	public void writeImage(BufferedImage im, String nom) {
+
+		try {
+
+			ImageIO.write(im, "png", new File(nom + ".png"));
+
+		} catch (IOException e) {
+		}
+
+	}
+	
 }

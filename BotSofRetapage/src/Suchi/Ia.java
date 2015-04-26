@@ -8,15 +8,16 @@ import java.awt.event.InputEvent;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
+import Pictures.FindPicture;
 import Pictures.Recon;
 
 public class Ia {
 
-	private static HashMap<String, Dot> zones;
-	private static HashMap<String, Integer> ingredients;
-	private static HashMap<String, BufferedImage> greyReference;
-	private static HashMap<String, Rectangle> greyIngredients;
-	private static HashMap<String, Rectangle> commandes;
+	private HashMap<String, Dot> zones;
+	private HashMap<String, Integer> ingredients;
+	private HashMap<String, BufferedImage> greyReference;
+	private HashMap<String, Rectangle> greyIngredients;
+	private HashMap<String, Rectangle> commandes;
 
 	private int width, height;
 
@@ -51,14 +52,21 @@ public class Ia {
 				(3. / 4.) * this.height));
 		zones.put("Sake", new Dot((5. / 8.) * this.width, (3. / 4.)
 				* this.height));
+		
 		zones.put("Telephone", new Dot((7. / 8.) * this.width, (3. / 4.)
 				* this.height));
-
+		zones.put("Tel_Back", new Dot((1113. / 1274.) * this.width, (660. / 959.)
+				* this.height));
+		zones.put("Tel_Hang", new Dot((1186. / 1274.) * this.width, (660. / 959.)
+				* this.height));
+		zones.put("Tel_Rice_Back", new Dot((1010. / 1277.) * this.width,
+				(667. / 959.) * this.height));
+		zones.put("Tel_Rice_Hang", new Dot((1185. / 1277.) * this.width,
+				(667. / 959.) * this.height));
 		zones.put("Tel_Topping", new Dot((1086. / 1286.) * this.width,
 				(552. / 956.) * this.height));
 		zones.put("Tel_Rice", new Dot((1086. / 1286.) * this.width,
 				(590. / 956.) * this.height));
-
 		zones.put("Tel_Shrimp", new Dot((994. / 1286.) * this.width,
 				(551. / 956.) * this.height));
 		zones.put("Tel_Nori", new Dot((994. / 1286.) * this.width,
@@ -69,11 +77,7 @@ public class Ia {
 				(650. / 959.) * this.height));
 		zones.put("Tel_Rice_Ingre", new Dot((1086. / 1286.) * this.width,
 				(570. / 956.) * this.height));
-		zones.put("Tel_Rice_Back", new Dot((1117. / 1277.) * this.width,
-				(667. / 959.) * this.height));
-		zones.put("Tel_Rice_Hang", new Dot((1185. / 1277.) * this.width,
-				(667. / 959.) * this.height));
-		zones.put("Checkout", new Dot((780. / 1016.) * this.width,
+		zones.put("Checkout", new Dot((760. / 1016.) * this.width,
 				(470. / 761.) * this.height));
 
 		zones.put("plate1", new Dot((163. / 1274.) * this.width,
@@ -112,17 +116,11 @@ public class Ia {
 		fillGreyTable("greySalmon", new Dot((914. / 1277.) * this.width,
 				(622. / 959.) * this.height), (142. / 1277.) * this.width,
 				(92. / 959.) * this.height);
-
+		
 		greyReference = new HashMap<String, BufferedImage>();
 
 		// remplissage d'un tableau de r��f��rence des images gris��es des
 		// ingr��dients.
-		for (String s : greyIngredients.keySet()) {
-
-			greyReference.put(s, new Robot()
-			.createScreenCapture(greyIngredients.get(s)));
-
-		}
 
 		commandes = new HashMap<String, Rectangle>();
 		fillCommandes("Bulle1", new Dot((78. / 1236.) * this.width,
@@ -177,6 +175,26 @@ public class Ia {
 				hautGauche.y, (int) width, (int) height));
 
 	}
+	
+	public void initGreyReference() throws Exception {
+	
+		clickZone("Telephone");
+		clickZone("Tel_Rice");
+		
+		greyReference.put("greyRice", new Robot().createScreenCapture(greyIngredients.get("greyRice")));
+
+		clickZone("Tel_Rice_Back");
+		clickZone("Tel_Topping");
+		
+		greyReference.put("greyNori", new Robot().createScreenCapture(greyIngredients.get("greyNori")));
+		greyReference.put("greyShrimp", new Robot().createScreenCapture(greyIngredients.get("greyShrimp")));
+		greyReference.put("greyFishEggs", new Robot().createScreenCapture(greyIngredients.get("greyFishEggs")));
+		greyReference.put("greySalmon", new Robot().createScreenCapture(greyIngredients.get("greySalmon")));
+		
+		Thread.sleep(10);
+		clickZone("Tel_Hang");
+		
+	}
 
 	public void fillCommandes(String name, Dot hautGauche, double width,
 			double height) {
@@ -199,11 +217,11 @@ public class Ia {
 			Robot robot = new Robot();
 			Point point = new Point(getZone(s).x, getZone(s).y);
 			robot.mouseMove(point.x, point.y);
-			robot.delay(50);
+			robot.delay(30);
 			robot.mousePress(InputEvent.BUTTON1_MASK);
-			robot.delay(50);
+			robot.delay(30);
 			robot.mouseRelease(InputEvent.BUTTON1_MASK);
-			robot.delay(50);
+			robot.delay(30);
 
 		} else
 			throw new Exception("Zone inconnue");
@@ -228,7 +246,9 @@ public class Ia {
 			if(ingredients.get(s) > 0){
 				
 			System.out.println("On utilise 1 : " + s);
-			ingredients.put(s, ingredients.get(s) - 1);
+			int temp = ingredients.get(s);
+			ingredients.remove(s);
+			ingredients.put(s, temp - 1);
 			System.out.println("Il en reste : " + ingredients.get(s));
 			checkIngredients();
 			
@@ -261,51 +281,72 @@ public class Ia {
 		if (ingredients.containsKey(s)) {
 
 			clickZone("Telephone");
-			
-			clickZone("Tel_Rice");
 
 			if (s == "Rice") {
+				
+				clickZone("Tel_Rice");
 
-				while (greyedOut) {
+				/*while (greyedOut) {
 
-					BufferedImage img1 = new Robot()
-					.createScreenCapture(greyIngredients.get("Grey" + s));
-
-					BufferedImage img2 = greyReference.get("Grey" + s);
-
-					greyedOut = !(new Recon().sontEgales(img1, img2, 90));
+					Thread.sleep(200);
+					BufferedImage img1 = new Robot().createScreenCapture(greyIngredients.get("grey" + s));
+					System.out.println(greyIngredients.get("greyRice").x + "    " + greyIngredients.get("greyRice").y);
+					//BufferedImage img2 = new Robot().createScreenCapture(Game.getGameZone());
+					BufferedImage img2 = greyReference.get("grey" + s);
 					
-					if(greyedOut) Thread.sleep(500);
+					new Recon().writeImage(img1, "Imageachercher");
+					new Recon().writeImage(img2, "imageref");
+					
+					greyedOut = !(new Recon().sontEgales(img1, img2, 90));
+					//System.out.println(greyedOut);
+					//greyedOut = !(new FindPicture(img1, img2).checkImage());
+					
+					if(greyedOut) Thread.sleep(50000);
 
-				}
+				}*/
 
 				clickZone("Tel_Rice_Ingre");
 
 			} else {
 
-				clickZone("Tel_Toppings");
+				clickZone("Tel_Topping");
 				
-				while (greyedOut) {
+				/*while (greyedOut) {
 
 					BufferedImage img1 = new Robot()
-					.createScreenCapture(greyIngredients.get("Grey" + s));
+					.createScreenCapture(greyIngredients.get("grey" + s));
 
-					BufferedImage img2 = greyReference.get("Grey" + s);
+					BufferedImage img2 = greyReference.get("grey" + s);
+					//BufferedImage img2 = new Robot().createScreenCapture(Game.getGameZone());
 
 					greyedOut = !(new Recon().sontEgales(img1, img2, 90));
+					//greyedOut = !(new FindPicture(img1, img2).checkImage());
 					
+					//System.out.println(greyedOut);
 					if(greyedOut) Thread.sleep(500);
 
-				}
+				}*/
 
 				clickZone("Tel_" + s);
-
+				
 			}
-
-			ingredients.put(s, ingredients.get(s) + 1);
-		} else
+			clickZone("Checkout");
+			
+			if(s == "Rice" || s == "Nori" || s == "FishEggs"){
+				
+				ingredients.put(s, 10);
+				
+			}
+			else {
+				
+				ingredients.put(s, 5);
+				
+			}
+			
+			Thread.sleep(4500);
+		} 
+		else	
 			throw new Exception("Ingr��dient non pr��sent dans la liste.");
-
 	}
 
 }

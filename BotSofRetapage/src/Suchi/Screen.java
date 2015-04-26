@@ -1,13 +1,11 @@
+package Suchi;
 
-
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 
 public class Screen {
@@ -17,7 +15,7 @@ public class Screen {
 
 	public Screen(int x) throws Exception {
 
-		Thread.sleep(1000 * x);
+		Thread.sleep(x);
 
 		this.img = new Robot().createScreenCapture(new Rectangle(Toolkit
 				.getDefaultToolkit().getScreenSize()));
@@ -43,8 +41,8 @@ public class Screen {
 
 	/*
 	 * La fonction du dessous renvoie le x du premier pixel dont la couleur est
-	 * diff��rente du pixel de d��part, en parcourant l'image horizontalement,
-	 * dans le sens de la largeur, dans la direction indiqu��e par le caract��re
+	 * diff??????rente du pixel de d??????part, en parcourant l'image horizontalement,
+	 * dans le sens de la largeur, dans la direction indiqu??????e par le caract??????re
 	 * "direction", avec e = est, w = west.
 	 */
 	public int lookHorizontal(char direction, int x) {
@@ -72,8 +70,8 @@ public class Screen {
 
 	/*
 	 * La fonction du dessous renvoie le premier pixel dont la couleur est
-	 * diff��rente du pixel de d��part, en parcourant l'image dans le sens de la
-	 * hauteur, dans la direction indiqu��e par le caract��re "direction", avec
+	 * diff??????rente du pixel de d??????part, en parcourant l'image dans le sens de la
+	 * hauteur, dans la direction indiqu??????e par le caract??????re "direction", avec
 	 * n = nord, s = sud.
 	 */
 	public int lookVertical(char direction, int y) { // si le pixel est

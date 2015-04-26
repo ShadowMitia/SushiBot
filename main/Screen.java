@@ -1,4 +1,4 @@
-
+package main;
 
 import java.awt.Point;
 import java.awt.Rectangle;
@@ -125,7 +125,7 @@ public class Screen {
 
 			yBottom = this.lookVertical('s', (int) this.departGauche.y);
 
-			//System.out.println(this.departDroit.x + " " + this.departDroit.y);
+			System.out.println(this.departDroit.x + " " + this.departDroit.y);
 			
 			xLeft = this.lookHorizontal('w', (int) this.departDroit.x);
 
@@ -137,7 +137,7 @@ public class Screen {
 			
 			if(this.departGauche.x > 0)this.departDroit.x -= 1;
 			
-			//System.out.println("Did it x1");
+			System.out.println("Did it x1");
 
 		} while (!((double) width / (double) height <= 1.35 && (double) width
 				/ (double) height >= 1.30));

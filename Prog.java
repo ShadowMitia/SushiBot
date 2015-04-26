@@ -7,11 +7,16 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public class Prog {
+	public static void main(String[] args) throws Exception {
+		
+		ToolBox toolbox = new ToolBox(250, 150);
+		
+	}
 
 	
 	
 	
-	
+	/*
 	public static void main(String []args) throws Exception {
 	
 		try {
@@ -30,7 +35,7 @@ public class Prog {
 		
 	}
 	
-	
+	*/
 	
 	
 }

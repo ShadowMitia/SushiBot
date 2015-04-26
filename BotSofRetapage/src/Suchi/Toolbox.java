@@ -33,7 +33,7 @@ public class Toolbox extends JFrame implements ActionListener {
 		this.setAlwaysOnTop(true);
 		this.setVisible(true);
 		
-		this.detect = new JButton("Let's Go Johnny!");
+		this.detect = new JButton("GO");
 		this.detect.addActionListener(this);
 		this.add(this.detect);
 		

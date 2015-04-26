@@ -21,7 +21,7 @@ public class Game {
 	private String youwin2 = "/sprites/youWin2.png";
 	private static Point origin;
 	private static Rectangle gameZone;
-	private static Rectangle zoneYouWin;
+	public static Rectangle zoneYouWin;
 	
 	public Game(String url){
 		
@@ -35,11 +35,11 @@ public class Game {
 		
 	}
 
-	public void setZoneWin() {
+	public static void setZoneWin() {
 		
-		int height = Game.getGameZone().height; int width = Game.getGameZone().width;
-		Dot pouet = new Dot((272. / 1236.) * width, (98. / 928.) * height);
-		zoneYouWin = new Rectangle(pouet.x, pouet.y, (int)((469. / 1277.)*width), (int)((77./959.)*height));
+		Dot temp = new Dot((407. / 1236.) * gameZone.width, (226. / 928.) * gameZone.height);
+		System.out.println("Debug : x:" + temp.x + " , y:" + temp.y);
+		zoneYouWin = new Rectangle(temp.x, temp.y, (int)((469. / 1277.)*gameZone.width), (int)((77./959.)*gameZone.height) );
 		
 	}
 	
@@ -61,7 +61,9 @@ public class Game {
 	public static void setGameZone(Rectangle newGameZone) {
 		
 		gameZone = newGameZone;
-		zoneYouWin = new Rectangle((new Dot(407, 226)).x, (new Dot(407, 226)).y, 469, 77);
+		zoneYouWin = new Rectangle((new Dot((407./1236.)*gameZone.width, (226./959.)*gameZone.height)).x, (new Dot((407./1236.)*gameZone.width, (226./959.)*gameZone.height)).y,
+				(int)((469./1274.)*gameZone.width), (int)((77./959.)*gameZone.height));
+		//setZoneWin();
 		
 	}
 	
@@ -88,8 +90,7 @@ public class Game {
 	public boolean youWinLevel1() throws AWTException{
 
 		
-		return new Recon().sontEgales(this.youwin1,
-				new Robot().createScreenCapture(zoneYouWin), 5);
+		return new Recon().sontEgales(new Robot().createScreenCapture(zoneYouWin),this.youwin1, 5);
 
 	}
 
@@ -112,6 +113,7 @@ public class Game {
 		startGame();
 		setYouWin();
 		while (!youWinLevel1()){
+			System.out.println("Toujours pas gagné");
 			Thread.sleep(0);
 			c.update();
 			c.check();
@@ -153,7 +155,7 @@ public class Game {
 	
 	public static void main (String []args) {
 		
-		Toolbox tb = new Toolbox(100,300);
+		Toolbox tb = new Toolbox(75,75);
 		
 	}
 	

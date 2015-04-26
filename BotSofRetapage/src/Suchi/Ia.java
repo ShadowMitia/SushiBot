@@ -217,11 +217,11 @@ public class Ia {
 			Robot robot = new Robot();
 			Point point = new Point(getZone(s).x, getZone(s).y);
 			robot.mouseMove(point.x, point.y);
-			robot.delay(30);
+			robot.delay(50);
 			robot.mousePress(InputEvent.BUTTON1_MASK);
-			robot.delay(30);
+			robot.delay(50);
 			robot.mouseRelease(InputEvent.BUTTON1_MASK);
-			robot.delay(30);
+			robot.delay(50);
 
 		} else
 			throw new Exception("Zone inconnue");
@@ -301,7 +301,7 @@ public class Ia {
 					//System.out.println(greyedOut);
 					//greyedOut = !(new FindPicture(img1, img2).checkImage());
 					
-					if(greyedOut) Thread.sleep(50000);
+					if(greyedOut) Thread.sleep(500);
 
 				}*/
 
@@ -343,7 +343,7 @@ public class Ia {
 				
 			}
 			
-			Thread.sleep(4500);
+			Thread.sleep(6000);
 		} 
 		else	
 			throw new Exception("Ingr��dient non pr��sent dans la liste.");

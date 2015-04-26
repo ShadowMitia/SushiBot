@@ -1,69 +1,17 @@
-package Pictures;
+package Suchi;
 
-import java.awt.Rectangle;
-import java.awt.Robot;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
-import Suchi.Dot;
-import Suchi.Game;
 
-/*
- * 
- * Cette classe va prendre un chemin de sprite et une zone en param��tre, et dira si l'image et la zone sont identiques.
- * 
- */
 
-public class Recon {
-
-	private HashMap<String, Rectangle> reconZones;
-	private int height, width;
+public class TestRec {
 	
-	public Recon(){
-		
-		this.height = Game.getGameZone().height; this.width = Game.getGameZone().width;
-		
-		this.reconZones = new HashMap<String, Rectangle>();
-		
-		 addZone("Bulle1", new Dot((78. / 1236.) * this.width,
-				 (98. / 928.) * this.height), 64*(1236./(double)this.width), 69*(959./this.height));
-		 addZone("Bulle2", new Dot((272. / 1236.) * this.width,
-				(98. / 928.) * this.height), 64*(1236./(double)this.width), 69*(959./this.height));
-		 addZone("Bulle3", new Dot((467. / 1236.) * this.width,
-				(98. / 928.) * this.height), 64*(1236./(double)this.width), 69*(959./this.height));
-		 addZone("Bulle4", new Dot((662. / 1236.) * this.width,
-				(98. / 928.) * this.height), 64*(1236./(double)this.width), 69*(959./this.height));
-		 addZone("Bulle5", new Dot((858. / 1236.) * this.width,
-				(98. / 928.) * this.height), 64*(1236./(double)this.width), 69*(959./this.height));
-		 addZone("Bulle6", new Dot((1053. / 1236.) * this.width,
-				(98. / 928.) * this.height), 64*(1236./(double)this.width), 69*(959./this.height));
-		
-	}
-	
-	public void addZone(String nom, Dot origin, double width, double height) {
-		
-		Rectangle temp = new Rectangle(origin.x, origin.y, (int)width, (int)height);
-		 this.reconZones.put(nom, temp);
-
-		
-	}
-	
-	public BufferedImage chargerZone(String s) throws Exception {
-		
-		if(this.reconZones.containsKey(s)){
-			
-			return new Robot().createScreenCapture(this.reconZones.get(s));
-			
-		}
-		else throw new Exception("Zone d'image non connue");
-	}
-	
-	public Boolean sontEgales(BufferedImage img1, BufferedImage img2, int marge) {
+public Boolean sontEgales(BufferedImage img1, BufferedImage img2, int marge) {
 		
 		ArrayList<Integer> array1 = new ArrayList<Integer>();
 		ArrayList<Integer> array2 = new ArrayList<Integer>();
@@ -99,7 +47,7 @@ public class Recon {
 				compteur--;
 		}
 		//System.out.println(compteur);
-		if(compteur >= 97) return true;
+		if(compteur >= 85) return true;
 		else return false;
 	}
 
@@ -164,5 +112,10 @@ public class Recon {
 		}
 
 	}
+	
+	
+	
+	
+	
 	
 }

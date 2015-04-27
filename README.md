@@ -7,9 +7,9 @@
 ```
 
 # Mini Projet 2015 
-Univesité Paris-Sud
+*Univesité Paris-Sud*
 
-Equipe:
+##Equipe:
 
 Sofiane Adjiri
 

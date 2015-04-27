@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component LANGUAGE_LEVEL="JDK_1_8" jdk="1.8" jdk_type="JavaSDK">
+	<output-test url="file://$MODULE_DIR$/test"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/BotSuchis"/>
+		<excludeFolder url="file://$MODULE_DIR$/main"/>
+		<excludeFolder url="file://$MODULE_DIR$/oldCode"/>
+		<excludeFolder url="file://$MODULE_DIR$/projet"/>
+		<excludeFolder url="file://$MODULE_DIR$/screenshots"/>
+	</contentEntry>
+</component>

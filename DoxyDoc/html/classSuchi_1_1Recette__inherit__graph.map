@@ -1,0 +1,7 @@
+<map id="Suchi.Recette" name="Suchi.Recette">
+<area shape="rect" id="node2" href="$classSuchi_1_1California.html" title="{Suchi.California\n|~ Noori\l~ Roe\l&#45; Rice\l&#45; time\l|+ make()\l+ validate()\l+ make()\l+ validate()\l~ California()\l~ California()\l}" alt="" coords="5,541,120,736"/>
+<area shape="rect" id="node3" href="$classSuchi_1_1Maki.html" title="{Suchi.Maki\n|~ Noori\l~ Roe\l&#45; Rice\l&#45; time\l|+ make()\l+ validate()\l+ make()\l+ validate()\l~ Maki()\l~ Maki()\l}" alt="" coords="145,541,231,736"/>
+<area shape="rect" id="node4" href="$classSuchi_1_1Onigiri.html" title="{Suchi.Onigiri\n|~ Noori\l&#45; Rice\l&#45; time\l|+ Onigiri()\l+ make()\l+ validate()\l+ Onigiri()\l+ make()\l+ validate()\l}" alt="" coords="256,549,352,729"/>
+<area shape="rect" id="node5" href="$classSuchi_1_1Salmon.html" title="{Suchi.Salmon\n|~ Noori\l~ Saumon\l&#45; Rice\l&#45; time\l|+ make()\l+ validate()\l+ make()\l+ validate()\l~ Salmon()\l~ Salmon()\l}" alt="" coords="377,541,479,736"/>
+<area shape="rect" id="node6" href="$classSuchi_1_1ShrimpSh.html" title="{Suchi.ShrimpSh\n||+ ShrimpSh()\l+ make()\l+ validate()\l}" alt="" coords="503,585,619,692"/>
+</map>

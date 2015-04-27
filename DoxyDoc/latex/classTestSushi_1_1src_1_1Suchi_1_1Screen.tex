@@ -1,0 +1,262 @@
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen}{}\subsection{Référence de la classe Test\+Sushi.\+src.\+Suchi.\+Screen}
+\label{classTestSushi_1_1src_1_1Suchi_1_1Screen}\index{Test\+Sushi.\+src.\+Suchi.\+Screen@{Test\+Sushi.\+src.\+Suchi.\+Screen}}
+
+
+Graphe de collaboration de Test\+Sushi.\+src.\+Suchi.\+Screen\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{classTestSushi_1_1src_1_1Suchi_1_1Screen__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a9add1c7c72beeedb43c8cc83eba5d516}{Screen} (int x)  throws Exception 
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe. \end{DoxyCompactList}\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a164d2e2e7e8842d22d572616e6e42d91}{get\+Pixel\+A\+R\+G\+B} (int x, int y)
+\begin{DoxyCompactList}\small\item\em La fonction ci-\/dessous convertit un \char`\"{}pixel numérique\char`\"{}, en rouge, vert, bleu. \end{DoxyCompactList}\item 
+void \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a2f02af516d37131e6caa17a462207db9}{save\+Image} (String name)
+\item 
+int \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a445a671d42d437061e770ab5d5c90a29}{look\+Horizontal} (char direction, int x)
+\begin{DoxyCompactList}\small\item\em La fonction renvoie la coordonnée x du premier pixel dont la couleur est différente du pixel de départ. \end{DoxyCompactList}\item 
+int \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a6d27b9186f8ac7e718f0bd274e12a922}{look\+Vertical} (char direction, int y)
+\begin{DoxyCompactList}\small\item\em La fonction renvoie la coordonnée y du premier pixel dont la couleur est différente du pixel de départ. \end{DoxyCompactList}\item 
+Buffered\+Image \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_abda2cf938d0c53cd814c5b82d9dac733}{get\+Img} ()
+\item 
+Point \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a6fe2cc2e13013b44d3f9c2933d9a6910}{get\+Depart\+Gauche} ()
+\item 
+Point \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a7ffc5bc670a9c0660beecbaf181dd93f}{get\+Depart\+Droit} ()
+\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a58e25a45cccecd69647340d7e5e1539b}{get\+Game\+Area} ()
+\begin{DoxyCompactList}\small\item\em Récupére les coordonnées de la zone de jeu dans l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+void \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a7e515fd61857c5e80e0f06122dad6707}{save\+Game\+Area} (String name)
+\begin{DoxyCompactList}\small\item\em Méthode qui crée un screenshot de la zone de jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+Robot \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a80fa00fef8cab0c39dd5acd0b82e67c3}{bot}
+\item 
+Buffered\+Image \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a4bcdef3ac769229ad8a2e825c20e3d69}{img}
+\item 
+Point \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_a9b1b16c289d044920e7a8b29b7316dad}{depart\+Gauche}
+\item 
+Point \hyperlink{classTestSushi_1_1src_1_1Suchi_1_1Screen_ab93cdda9b1c3faf212983f934b9d2158}{depart\+Droit}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Documentation des constructeurs et destructeur}
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a9add1c7c72beeedb43c8cc83eba5d516}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!Screen@{Screen}}
+\index{Screen@{Screen}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{Screen}]{\setlength{\rightskip}{0pt plus 5cm}Test\+Sushi.\+src.\+Suchi.\+Screen.\+Screen (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+) throws Exception}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a9add1c7c72beeedb43c8cc83eba5d516}
+
+
+Constructeur de la classe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & le temps de délais avant la capture de l\textquotesingle{}écran \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+\subsubsection{Documentation des fonctions membres}
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a7ffc5bc670a9c0660beecbaf181dd93f}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!get\+Depart\+Droit@{get\+Depart\+Droit}}
+\index{get\+Depart\+Droit@{get\+Depart\+Droit}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{get\+Depart\+Droit}]{\setlength{\rightskip}{0pt plus 5cm}Point Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Depart\+Droit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a7ffc5bc670a9c0660beecbaf181dd93f}
+\begin{DoxyReturn}{Renvoie}
+la coordonnée du point en haut à droite 
+\end{DoxyReturn}
+
+
+Référencé par Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Game\+Area().
+
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a6fe2cc2e13013b44d3f9c2933d9a6910}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!get\+Depart\+Gauche@{get\+Depart\+Gauche}}
+\index{get\+Depart\+Gauche@{get\+Depart\+Gauche}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{get\+Depart\+Gauche}]{\setlength{\rightskip}{0pt plus 5cm}Point Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Depart\+Gauche (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a6fe2cc2e13013b44d3f9c2933d9a6910}
+\begin{DoxyReturn}{Renvoie}
+la coordonnée du point en à gauche 
+\end{DoxyReturn}
+
+
+Référencé par Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Game\+Area().
+
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a58e25a45cccecd69647340d7e5e1539b}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!get\+Game\+Area@{get\+Game\+Area}}
+\index{get\+Game\+Area@{get\+Game\+Area}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{get\+Game\+Area}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Game\+Area (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a58e25a45cccecd69647340d7e5e1539b}
+
+
+Récupére les coordonnées de la zone de jeu dans l\textquotesingle{}écran. 
+
+\begin{DoxyReturn}{Renvoie}
+un tableau des coordonnées de la zone de jeu 
+\end{DoxyReturn}
+
+
+Référencé par Test\+Sushi.\+src.\+Suchi.\+Screen.\+save\+Game\+Area().
+
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_abda2cf938d0c53cd814c5b82d9dac733}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!get\+Img@{get\+Img}}
+\index{get\+Img@{get\+Img}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{get\+Img}]{\setlength{\rightskip}{0pt plus 5cm}Buffered\+Image Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Img (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_abda2cf938d0c53cd814c5b82d9dac733}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a164d2e2e7e8842d22d572616e6e42d91}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!get\+Pixel\+A\+R\+G\+B@{get\+Pixel\+A\+R\+G\+B}}
+\index{get\+Pixel\+A\+R\+G\+B@{get\+Pixel\+A\+R\+G\+B}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{get\+Pixel\+A\+R\+G\+B}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Pixel\+A\+R\+G\+B (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a164d2e2e7e8842d22d572616e6e42d91}
+
+
+La fonction ci-\/dessous convertit un \char`\"{}pixel numérique\char`\"{}, en rouge, vert, bleu. 
+
+On ignore l\textquotesingle{}alpha. 
+\begin{DoxyParams}{Paramètres}
+{\em x} & coordonnée x à convertir \\
+\hline
+{\em y} & coordonnée y à convertir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le pixel convertit 
+\end{DoxyReturn}
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a445a671d42d437061e770ab5d5c90a29}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!look\+Horizontal@{look\+Horizontal}}
+\index{look\+Horizontal@{look\+Horizontal}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{look\+Horizontal}]{\setlength{\rightskip}{0pt plus 5cm}int Test\+Sushi.\+src.\+Suchi.\+Screen.\+look\+Horizontal (
+\begin{DoxyParamCaption}
+\item[{char}]{direction, }
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a445a671d42d437061e770ab5d5c90a29}
+
+
+La fonction renvoie la coordonnée x du premier pixel dont la couleur est différente du pixel de départ. 
+
+Elle parcourt l\textquotesingle{}image dans la largeur dans la direction indiquée. 
+\begin{DoxyParams}{Paramètres}
+{\em direction} & La direction de parcourt\+: soit e pour vers la droite et w pour vers la gauche \\
+\hline
+{\em x} & la ligne à vérifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la coordonnée x du premier pixel différent 
+\end{DoxyReturn}
+
+
+Référencé par Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Game\+Area().
+
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a6d27b9186f8ac7e718f0bd274e12a922}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!look\+Vertical@{look\+Vertical}}
+\index{look\+Vertical@{look\+Vertical}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{look\+Vertical}]{\setlength{\rightskip}{0pt plus 5cm}int Test\+Sushi.\+src.\+Suchi.\+Screen.\+look\+Vertical (
+\begin{DoxyParamCaption}
+\item[{char}]{direction, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a6d27b9186f8ac7e718f0bd274e12a922}
+
+
+La fonction renvoie la coordonnée y du premier pixel dont la couleur est différente du pixel de départ. 
+
+Elle parcourt l\textquotesingle{}image sur la hauteur dans la direction indiquée. 
+\begin{DoxyParams}{Paramètres}
+{\em direction} & peut être soit n pour regarder vers le haut ou s pour vers le bas \\
+\hline
+{\em y} & Donne la coordonnée y du premier pixel de couleur différente du pixel original \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+
+
+Référencé par Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Game\+Area().
+
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a7e515fd61857c5e80e0f06122dad6707}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!save\+Game\+Area@{save\+Game\+Area}}
+\index{save\+Game\+Area@{save\+Game\+Area}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{save\+Game\+Area}]{\setlength{\rightskip}{0pt plus 5cm}void Test\+Sushi.\+src.\+Suchi.\+Screen.\+save\+Game\+Area (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a7e515fd61857c5e80e0f06122dad6707}
+
+
+Méthode qui crée un screenshot de la zone de jeu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & le fichier dans lequel stocker le screenshot \\
+\hline
+\end{DoxyParams}
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a2f02af516d37131e6caa17a462207db9}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!save\+Image@{save\+Image}}
+\index{save\+Image@{save\+Image}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{save\+Image}]{\setlength{\rightskip}{0pt plus 5cm}void Test\+Sushi.\+src.\+Suchi.\+Screen.\+save\+Image (
+\begin{DoxyParamCaption}
+\item[{String}]{name}
+\end{DoxyParamCaption}
+)}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a2f02af516d37131e6caa17a462207db9}
+
+\begin{DoxyParams}{Paramètres}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsubsection{Documentation des données membres}
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a80fa00fef8cab0c39dd5acd0b82e67c3}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!bot@{bot}}
+\index{bot@{bot}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{bot}]{\setlength{\rightskip}{0pt plus 5cm}Robot Test\+Sushi.\+src.\+Suchi.\+Screen.\+bot\hspace{0.3cm}{\ttfamily [private]}}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a80fa00fef8cab0c39dd5acd0b82e67c3}
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_ab93cdda9b1c3faf212983f934b9d2158}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!depart\+Droit@{depart\+Droit}}
+\index{depart\+Droit@{depart\+Droit}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{depart\+Droit}]{\setlength{\rightskip}{0pt plus 5cm}Point Test\+Sushi.\+src.\+Suchi.\+Screen.\+depart\+Droit\hspace{0.3cm}{\ttfamily [private]}}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_ab93cdda9b1c3faf212983f934b9d2158}
+
+
+Référencé par Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Depart\+Droit().
+
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a9b1b16c289d044920e7a8b29b7316dad}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!depart\+Gauche@{depart\+Gauche}}
+\index{depart\+Gauche@{depart\+Gauche}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{depart\+Gauche}]{\setlength{\rightskip}{0pt plus 5cm}Point Test\+Sushi.\+src.\+Suchi.\+Screen.\+depart\+Gauche\hspace{0.3cm}{\ttfamily [private]}}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a9b1b16c289d044920e7a8b29b7316dad}
+
+
+Référencé par Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Depart\+Gauche().
+
+\hypertarget{classTestSushi_1_1src_1_1Suchi_1_1Screen_a4bcdef3ac769229ad8a2e825c20e3d69}{}\index{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}!img@{img}}
+\index{img@{img}!Test\+Sushi\+::src\+::\+Suchi\+::\+Screen@{Test\+Sushi\+::src\+::\+Suchi\+::\+Screen}}
+\paragraph[{img}]{\setlength{\rightskip}{0pt plus 5cm}Buffered\+Image Test\+Sushi.\+src.\+Suchi.\+Screen.\+img\hspace{0.3cm}{\ttfamily [private]}}\label{classTestSushi_1_1src_1_1Suchi_1_1Screen_a4bcdef3ac769229ad8a2e825c20e3d69}
+
+
+Référencé par Test\+Sushi.\+src.\+Suchi.\+Screen.\+get\+Img().
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{projet_2TestSushi_2src_2Suchi_2Screen_8java}{projet/\+Test\+Sushi/src/\+Suchi/\+Screen.\+java}\end{DoxyCompactItemize}

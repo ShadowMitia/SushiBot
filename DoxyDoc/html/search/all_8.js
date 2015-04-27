@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['ia',['IA',['../classIA.html',1,'IA'],['../classSuchi_1_1Client.html#a1081e8917f8ab6e73a16188230466238',1,'Suchi.Client.ia()'],['../classSuchi_1_1Recette.html#add9d95ee8955e02592b553c7e4b719a0',1,'Suchi.Recette.ia()'],['../classmain_1_1Manager.html#a2ec66c16cb2670f76ad9f7d941761221',1,'main.Manager.ia()'],['../classManager.html#a90957746b755371f0051a74b81f2827f',1,'Manager.ia()'],['../classSushis_1_1src_1_1Manager.html#a1b807b964e5abf15e84f7bec47b3d7d5',1,'Sushis.src.Manager.ia()'],['../classSuchi_1_1Ia.html#a9c574fcd317f6c966660ab8d574c2512',1,'Suchi.Ia.Ia()'],['../classmain_1_1IA.html#abdf61311d6f954412d7090bf475ae14b',1,'main.IA.IA()'],['../classIA.html#ac5567e7745fa95d02be55a502ba4eb54',1,'IA.IA()'],['../classSushis_1_1src_1_1IA.html#ae09b1ae66dfec966050bde22afebf409',1,'Sushis.src.IA.IA()']]],
+  ['ia',['IA',['../classmain_1_1IA.html',1,'main']]],
+  ['ia',['Ia',['../classSuchi_1_1Ia.html',1,'Suchi']]],
+  ['ia',['IA',['../classSushis_1_1src_1_1IA.html',1,'Sushis::src']]],
+  ['ia_2ejava',['Ia.java',['../Ia_8java.html',1,'']]],
+  ['iatest',['IATest',['../classmain_1_1IATest.html',1,'main']]],
+  ['imagerecognitiontest',['ImageRecognitionTest',['../classImageRecognitionTest.html',1,'']]],
+  ['imagerecognitiontest_2ejava',['ImageRecognitionTest.java',['../ImageRecognitionTest_8java.html',1,'']]],
+  ['img',['img',['../classPictures_1_1FindPicture.html#aae63a27df999ed48e5af4c680c3d75ad',1,'Pictures.FindPicture.img()'],['../classSuchi_1_1Screen.html#a2d5611bc884926482cd2364e5ae43f74',1,'Suchi.Screen.img()'],['../classmain_1_1Screen.html#aa7f8e8fdd911afa3e27ebd437fe7d8e4',1,'main.Screen.img()'],['../classGameWindow.html#a72d61cef747fc3a4b64d30078c833aed',1,'GameWindow.img()'],['../classScreen.html#af49ad57043e65d732b53075fcfc7584c',1,'Screen.img()'],['../classSushis_1_1src_1_1Screen.html#ae3beed4f3d5e1570d216d186f7dee4a7',1,'Sushis.src.Screen.img()'],['../classTestSushi_1_1src_1_1Pictures_1_1FindPicture.html#a2efdf9b4cf94ca02ddc955f9a205c090',1,'TestSushi.src.Pictures.FindPicture.img()'],['../classTestSushi_1_1src_1_1Suchi_1_1Screen.html#a4bcdef3ac769229ad8a2e825c20e3d69',1,'TestSushi.src.Suchi.Screen.img()']]],
+  ['imgrecognition',['IMGRecognition',['../classmain_1_1IMGRecognition.html',1,'main']]],
+  ['imgrecognition',['IMGRecognition',['../classSushis_1_1src_1_1IMGRecognition.html',1,'Sushis::src']]],
+  ['imgrecognition',['IMGRecognition',['../classIMGRecognition.html',1,'IMGRecognition'],['../classmain_1_1IMGRecognition.html#ad3a4c7df4f9a57b7b651ec87432f7427',1,'main.IMGRecognition.IMGRecognition()'],['../classIMGRecognition.html#a12b6f92bcc6cf51a70b4299b63dc07c9',1,'IMGRecognition.IMGRecognition()'],['../classSushis_1_1src_1_1IMGRecognition.html#a3e643391bca697087339219b2ed8e2b1',1,'Sushis.src.IMGRecognition.IMGRecognition()']]],
+  ['imgrecognitiontest',['IMGRecognitionTest',['../classmain_1_1IMGRecognitionTest.html',1,'main']]],
+  ['imgrecognitiontest',['IMGRecognitionTest',['../classIMGRecognitionTest.html',1,'']]],
+  ['ingredients',['ingredients',['../classSuchi_1_1Ia.html#a40844cdcf9d0c53a5c49971378c8b03e',1,'Suchi.Ia.ingredients()'],['../classmain_1_1Manager.html#a20b4db237b6744ed2b6974af96acacff',1,'main.Manager.ingredients()'],['../classManager.html#a731ab4f92babdcabb9a0e2e8ecc91b27',1,'Manager.ingredients()'],['../classSushis_1_1src_1_1Manager.html#aeb7c5ea92c4658cf9001a6a3c0f8022c',1,'Sushis.src.Manager.ingredients()']]],
+  ['init',['init',['../classSuchi_1_1ScreenMouse.html#a43fe0ac32df58f014acba4997948d366',1,'Suchi.ScreenMouse.init()'],['../classTestSushi_1_1src_1_1Suchi_1_1ScreenMouse.html#a873bbbb82bf37bddbd08435e3ad66746',1,'TestSushi.src.Suchi.ScreenMouse.init()']]],
+  ['initgreyreference',['initGreyReference',['../classSuchi_1_1Ia.html#aac06aa97debea740baf03ebaf7d55f5e',1,'Suchi::Ia']]],
+  ['initiategame',['initiateGame',['../classmain_1_1IA.html#ae79d50e08efd41c2bc3e2358813d14a0',1,'main.IA.initiateGame()'],['../classIA.html#a0bf764584e254c4551de156962ae1e34',1,'IA.initiateGame()'],['../classSushis_1_1src_1_1IA.html#ad4ad87f8107d1c7f5cf520ac1322e1f4',1,'Sushis.src.IA.initiateGame()']]],
+  ['invertimage',['invertImage',['../classmain_1_1IMGRecognition.html#ac3c82596f3127a48f0093b479ee9d450',1,'main.IMGRecognition.invertImage()'],['../classIMGRecognition.html#a58a3b199e12c2f45c5b2841bf7779353',1,'IMGRecognition.invertImage()'],['../classSushis_1_1src_1_1IMGRecognition.html#acebcc87d32e418a7122dff9d0ad5dfac',1,'Sushis.src.IMGRecognition.invertImage()']]]
+];

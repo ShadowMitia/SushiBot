@@ -1,0 +1,4 @@
+<map id="ClicButton" name="ClicButton">
+<area shape="rect" id="node2" href="$classSearchRatio.html" title="{SearchRatio\n|~ config\l~ ratioX\l~ ratioY\l|+ SearchRatio()\l+ read()\l+ findR()\l}" alt="" coords="5,182,120,318"/>
+<area shape="rect" id="node4" href="$classGameWindow.html" title="{GameWindow\n||+ GameWindow()\l+ xGauche()\l+ xDroit()\l+ yHaut()\l+ returnCropped()\l+ getImg()\l+ getWindowH()\l+ getWindowW()\l+ getDepart()\l+ main()\l}" alt="" coords="145,145,269,355"/>
+</map>

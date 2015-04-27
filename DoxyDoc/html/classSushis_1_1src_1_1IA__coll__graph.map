@@ -1,0 +1,6 @@
+<map id="Sushis.src.IA" name="Sushis.src.IA">
+<area shape="rect" id="node6" href="$classSushis_1_1src_1_1Manager.html" title="{Sushis.src.Manager\n|&#45; cash\l&#45; bar\l|+ Manager()\l+ CheckBar()\l&#45; makeSushi()\l}" alt="" coords="531,848,669,969"/>
+<area shape="rect" id="node2" href="$classSushis_1_1src_1_1ToolBox.html" title="{Sushis.src.ToolBox\n|&#45; w\l&#45; h\l&#45; countScreen\l&#45; serialVersionUID\l|+ ToolBox()\l+ ToolBox()\l+ Capture()\l+ CaptureGame()\l+ Launch()\l+ Run()\l+ Serve()\l+ actionPerformed()\l}" alt="" coords="295,1120,433,1344"/>
+<area shape="rect" id="node12" href="$classSushis_1_1src_1_1Zone.html" title="{Sushis.src.Zone\n||+ Zone()\l+ addZone()\l+ addZone()\l+ getZonesTable()\l}" alt="" coords="801,363,929,484"/>
+<area shape="rect" id="node14" href="$classSushis_1_1src_1_1ReadZone.html" title="{Sushis.src.ReadZone\n||+ ReadZone()\l+ addZone()\l+ getZones()\l}" alt="" coords="958,370,1106,477"/>
+</map>

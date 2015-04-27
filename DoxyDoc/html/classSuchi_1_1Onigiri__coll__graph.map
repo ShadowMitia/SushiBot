@@ -1,0 +1,4 @@
+<map id="Suchi.Onigiri" name="Suchi.Onigiri">
+<area shape="rect" id="node2" href="$classSuchi_1_1Recette.html" title="{Suchi.Recette\n|# Rice\l# Roe\l# Noori\l# salmon\l&#45; time\l|+ make()\l+ validate()\l+ useRice()\l+ useRoe()\l+ useNoori()\l+ useSalmon()\l+ checkAliment()\l+ phoneClick()\l+ validatePhone()\l+ buyRice()\l+ buyRoe()\l+ buyNoori()\l+ buySalmon()\l+ resetAliments()\l# Recette()\l}" alt="" coords="394,763,518,1104"/>
+<area shape="rect" id="node3" href="$classSuchi_1_1Ia.html" title="{Suchi.Ia\n|~ height\l&#45; width\l|+ Ia()\l+ loadCommandes()\l+ clearTable()\l+ saveSprites()\l+ fillGreyTable()\l+ initGreyReference()\l+ fillCommandes()\l+ getZone()\l+ clickZone()\l+ resetIngredients()\l+ useIngredient()\l+ checkIngredients()\l+ buyIngredient()\l}" alt="" coords="356,315,503,583"/>
+</map>

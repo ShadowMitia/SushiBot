@@ -1,0 +1,7 @@
+<map id="main.Manager" name="main.Manager">
+<area shape="rect" id="node5" href="$classmain_1_1ToolBox.html" title="{main.ToolBox\n|&#45; w\l&#45; h\l&#45; countScreen\l&#45; serialVersionUID\l|+ ToolBox()\l+ ToolBox()\l+ Capture()\l+ CaptureGame()\l+ Launch()\l+ Run()\l+ Serve()\l+ actionPerformed()\l}" alt="" coords="749,683,886,907"/>
+<area shape="rect" id="node2" href="$classmain_1_1Service.html" title="{main.Service\n||+ Service()\l+ run()\l}" alt="" coords="771,145,869,237"/>
+<area shape="rect" id="node4" href="$classmain_1_1IA.html" title="{main.IA\n|+ xOr\l+ yOr\l&#45; width\l&#45; height\l&#45; serialVersionUID\l&#45; spriteCount\l|+ IA()\l+ click()\l+ initiateGame()\l+ getZone()\l+ saveSprites()\l+ loadSprites()\l+ getSushi()\l}" alt="" coords="373,956,502,1195"/>
+<area shape="rect" id="node13" href="$classmain_1_1Zone.html" title="{main.Zone\n||+ Zone()\l+ addZone()\l+ addZone()\l+ getZonesTable()\l}" alt="" coords="239,537,367,659"/>
+<area shape="rect" id="node15" href="$classmain_1_1ReadZone.html" title="{main.ReadZone\n||+ ReadZone()\l+ addZone()\l+ getZones()\l}" alt="" coords="380,545,495,651"/>
+</map>

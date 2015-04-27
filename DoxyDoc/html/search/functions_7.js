@@ -1,0 +1,9 @@
+var searchData=
+[
+  ['ia',['Ia',['../classSuchi_1_1Ia.html#a9c574fcd317f6c966660ab8d574c2512',1,'Suchi.Ia.Ia()'],['../classmain_1_1IA.html#abdf61311d6f954412d7090bf475ae14b',1,'main.IA.IA()'],['../classIA.html#ac5567e7745fa95d02be55a502ba4eb54',1,'IA.IA()'],['../classSushis_1_1src_1_1IA.html#ae09b1ae66dfec966050bde22afebf409',1,'Sushis.src.IA.IA()']]],
+  ['imgrecognition',['IMGRecognition',['../classmain_1_1IMGRecognition.html#ad3a4c7df4f9a57b7b651ec87432f7427',1,'main.IMGRecognition.IMGRecognition()'],['../classIMGRecognition.html#a12b6f92bcc6cf51a70b4299b63dc07c9',1,'IMGRecognition.IMGRecognition()'],['../classSushis_1_1src_1_1IMGRecognition.html#a3e643391bca697087339219b2ed8e2b1',1,'Sushis.src.IMGRecognition.IMGRecognition()']]],
+  ['init',['init',['../classSuchi_1_1ScreenMouse.html#a43fe0ac32df58f014acba4997948d366',1,'Suchi.ScreenMouse.init()'],['../classTestSushi_1_1src_1_1Suchi_1_1ScreenMouse.html#a873bbbb82bf37bddbd08435e3ad66746',1,'TestSushi.src.Suchi.ScreenMouse.init()']]],
+  ['initgreyreference',['initGreyReference',['../classSuchi_1_1Ia.html#aac06aa97debea740baf03ebaf7d55f5e',1,'Suchi::Ia']]],
+  ['initiategame',['initiateGame',['../classmain_1_1IA.html#ae79d50e08efd41c2bc3e2358813d14a0',1,'main.IA.initiateGame()'],['../classIA.html#a0bf764584e254c4551de156962ae1e34',1,'IA.initiateGame()'],['../classSushis_1_1src_1_1IA.html#ad4ad87f8107d1c7f5cf520ac1322e1f4',1,'Sushis.src.IA.initiateGame()']]],
+  ['invertimage',['invertImage',['../classmain_1_1IMGRecognition.html#ac3c82596f3127a48f0093b479ee9d450',1,'main.IMGRecognition.invertImage()'],['../classIMGRecognition.html#a58a3b199e12c2f45c5b2841bf7779353',1,'IMGRecognition.invertImage()'],['../classSushis_1_1src_1_1IMGRecognition.html#acebcc87d32e418a7122dff9d0ad5dfac',1,'Sushis.src.IMGRecognition.invertImage()']]]
+];

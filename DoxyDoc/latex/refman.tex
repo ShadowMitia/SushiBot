@@ -1,0 +1,334 @@
+\documentclass[twoside]{article}
+
+% Packages required by doxygen
+\usepackage{fixltx2e}
+\usepackage{calc}
+\usepackage{doxygen}
+\usepackage[export]{adjustbox} % also loads graphicx
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{multirow}
+\PassOptionsToPackage{warn}{textcomp}
+\usepackage{textcomp}
+\usepackage[nointegrals]{wasysym}
+\usepackage[table]{xcolor}
+
+% NLS support packages
+\usepackage[french]{babel}
+
+% Font selection
+\usepackage[T1]{fontenc}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage{amssymb}
+\usepackage{sectsty}
+\renewcommand{\familydefault}{\sfdefault}
+\allsectionsfont{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\renewcommand{\DoxyLabelFont}{%
+  \fontseries{bc}\selectfont%
+  \color{darkgray}%
+}
+\newcommand{\+}{\discretionary{\mbox{\scriptsize$\hookleftarrow$}}{}{}}
+
+% Page & text layout
+\usepackage{geometry}
+\geometry{%
+  a4paper,%
+  top=2.5cm,%
+  bottom=2.5cm,%
+  left=2.5cm,%
+  right=2.5cm%
+}
+\tolerance=750
+\hfuzz=15pt
+\hbadness=750
+\setlength{\emergencystretch}{15pt}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.2cm}
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@parafont%
+  }%
+}
+\renewcommand{\subparagraph}{%
+  \@startsection{subparagraph}{5}{0ex}{-1.0ex}{1.0ex}{%
+    \normalfont\normalsize\bfseries\SS@subparafont%
+  }%
+}
+\makeatother
+
+% Headers & footers
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead[LE]{\fancyplain{}{\bfseries\thepage}}
+\fancyhead[CE]{\fancyplain{}{}}
+\fancyhead[RE]{\fancyplain{}{\bfseries\leftmark}}
+\fancyhead[LO]{\fancyplain{}{\bfseries\rightmark}}
+\fancyhead[CO]{\fancyplain{}{}}
+\fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
+\fancyfoot[LE]{\fancyplain{}{}}
+\fancyfoot[CE]{\fancyplain{}{}}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Généré le Lundi 27 Avril 2015 13\+:08\+:31 pour Bot Sushi Go Round par Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Généré le Lundi 27 Avril 2015 13\+:08\+:31 pour Bot Sushi Go Round par Doxygen }}
+\fancyfoot[CO]{\fancyplain{}{}}
+\fancyfoot[RO]{\fancyplain{}{}}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\sectionmark}[1]{%
+  \markright{\thesection\ #1}%
+}
+
+% Indices & bibliography
+\usepackage{natbib}
+\usepackage[titles]{tocloft}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{5}
+\makeindex
+
+% Hyperlinks (required, but should be loaded last)
+\usepackage{ifpdf}
+\ifpdf
+  \usepackage[pdftex,pagebackref=true]{hyperref}
+\else
+  \usepackage[ps2pdf,pagebackref=true]{hyperref}
+\fi
+\hypersetup{%
+  colorlinks=true,%
+  linkcolor=blue,%
+  citecolor=blue,%
+  unicode%
+}
+
+% Custom commands
+\newcommand{\clearemptydoublepage}{%
+  \newpage{\pagestyle{empty}\cleardoublepage}%
+}
+
+
+%===== C O N T E N T S =====
+
+\begin{document}
+
+% Titlepage & ToC
+\hypersetup{pageanchor=false,
+             bookmarks=true,
+             bookmarksnumbered=true,
+             pdfencoding=unicode
+            }
+\pagenumbering{roman}
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}%
+{\Large Bot Sushi Go Round }\\
+\vspace*{1cm}
+{\large Généré par Doxygen 1.8.9.1}\\
+\vspace*{0.5cm}
+{\small Lundi 27 Avril 2015 13:08:31}\\
+\end{center}
+\end{titlepage}
+\tableofcontents
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true}
+
+%--- Begin generated contents ---
+\section{Index des espaces de nommage}
+\input{namespaces}
+\section{Index hiérarchique}
+\input{hierarchy}
+\section{Index des classes}
+\input{annotated}
+\section{Index des fichiers}
+\input{files}
+\section{Documentation des espaces de nommage}
+\input{namespacemain}
+\input{namespacePictures}
+\input{namespaceSuchi}
+\input{namespaceSushis}
+\input{namespaceSushis_1_1src}
+\input{namespaceTestSushi}
+\input{namespaceTestSushi_1_1src}
+\input{namespaceTestSushi_1_1src_1_1Pictures}
+\input{namespaceTestSushi_1_1src_1_1Suchi}
+\section{Documentation des classes}
+\input{classSuchi_1_1California}
+\input{classTestSushi_1_1src_1_1Suchi_1_1California}
+\input{classClicButton}
+\input{classSuchi_1_1Client}
+\input{classTestSushi_1_1src_1_1Suchi_1_1Client}
+\input{classDot}
+\input{classSuchi_1_1Dot}
+\input{classmain_1_1Dot}
+\input{classTestSushi_1_1src_1_1Pictures_1_1FindPicture}
+\input{classPictures_1_1FindPicture}
+\input{classTestSushi_1_1src_1_1Suchi_1_1Game}
+\input{classSuchi_1_1Game}
+\input{classSuchi_1_1GameArea}
+\input{classGameWindow}
+\input{classIA}
+\input{classmain_1_1IA}
+\input{classSushis_1_1src_1_1IA}
+\input{classSuchi_1_1Ia}
+\input{classmain_1_1IATest}
+\input{classImageRecognitionTest}
+\input{classIMGRecognition}
+\input{classmain_1_1IMGRecognition}
+\input{classSushis_1_1src_1_1IMGRecognition}
+\input{classIMGRecognitionTest}
+\input{classmain_1_1IMGRecognitionTest}
+\input{classTestSushi_1_1src_1_1Suchi_1_1Maki}
+\input{classSuchi_1_1Maki}
+\input{classManager}
+\input{classSushis_1_1src_1_1Manager}
+\input{classmain_1_1Manager}
+\input{classTestSushi_1_1src_1_1Suchi_1_1Onigiri}
+\input{classSuchi_1_1Onigiri}
+\input{classSuchi_1_1Prog}
+\input{classProg}
+\input{classSushis_1_1src_1_1Prog}
+\input{classmain_1_1Prog}
+\input{classSushis_1_1src_1_1ReadZone}
+\input{classReadZone}
+\input{classmain_1_1ReadZone}
+\input{classTestSushi_1_1src_1_1Suchi_1_1Recette}
+\input{classSuchi_1_1Recette}
+\input{classPictures_1_1Recon}
+\input{classmain_1_1Reconnaissance}
+\input{classPictures_1_1Reconnaissance}
+\input{classReconnaissance}
+\input{classSushis_1_1src_1_1Reconnaissance}
+\input{classTestSushi_1_1src_1_1Suchi_1_1Salmon}
+\input{classSuchi_1_1Salmon}
+\input{classmain_1_1Screen}
+\input{classTestSushi_1_1src_1_1Suchi_1_1Screen}
+\input{classSushis_1_1src_1_1Screen}
+\input{classSuchi_1_1Screen}
+\input{classScreen}
+\input{classScreenCaptureRectangle}
+\input{classTestSushi_1_1src_1_1Suchi_1_1ScreenCaptureRectangle}
+\input{classSuchi_1_1ScreenCaptureRectangle}
+\input{classSuchi_1_1ScreenMouse}
+\input{classTestSushi_1_1src_1_1Suchi_1_1ScreenMouse}
+\input{classSearchRatio}
+\input{classmain_1_1Service}
+\input{classService}
+\input{classSuchi_1_1ShrimpSh}
+\input{classTestSushi_1_1src_1_1Suchi_1_1ShrimpSh}
+\input{classStop}
+\input{enumSuchi_1_1Client_1_1Sushis}
+\input{enumTestSushi_1_1src_1_1Suchi_1_1Client_1_1Sushis}
+\input{classSuchi_1_1TestRec}
+\input{classSuchi_1_1TestRecTest}
+\input{classToolBox}
+\input{classSuchi_1_1ToolBox}
+\input{classSuchi_1_1Toolbox}
+\input{classSushis_1_1src_1_1ToolBox}
+\input{classmain_1_1ToolBox}
+\input{classSushis_1_1src_1_1Zone}
+\input{classZone}
+\input{classmain_1_1Zone}
+\section{Documentation des fichiers}
+\input{BotSofRetapage_2src_2Suchi_2California_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2California_8java}
+\input{projet_2TestSushi_2src_2Suchi_2California_8java}
+\input{ClicButton_8java}
+\input{BotSofRetapage_2src_2Suchi_2Client_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2Client_8java}
+\input{projet_2TestSushi_2src_2Suchi_2Client_8java}
+\input{BotSofRetapage_2src_2Suchi_2Dot_8java}
+\input{main_2Dot_8java}
+\input{oldCode_2Dot_8java}
+\input{BotSofRetapage_2src_2Pictures_2FindPicture_8java}
+\input{BotSuchis_2TestSuchis_2Pictures_2FindPicture_8java}
+\input{oldCode_2FindPicture_8java}
+\input{projet_2TestSushi_2src_2Pictures_2FindPicture_8java}
+\input{BotSofRetapage_2src_2Suchi_2Game_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2Game_8java}
+\input{projet_2TestSushi_2src_2Suchi_2Game_8java}
+\input{GameArea_8java}
+\input{GameWindow_8java}
+\input{main_2IA_8java}
+\input{oldCode_2IA_8java}
+\input{projet_2Sushis_2src_2IA_8java}
+\input{Ia_8java}
+\input{main_2IATest_8java}
+\input{oldCode_2IATest_8java}
+\input{projet_2Sushis_2src_2IATest_8java}
+\input{ImageRecognitionTest_8java}
+\input{main_2IMGRecognition_8java}
+\input{oldCode_2IMGRecognition_8java}
+\input{projet_2Sushis_2src_2IMGRecognition_8java}
+\input{main_2IMGRecognitionTest_8java}
+\input{oldCode_2IMGRecognitionTest_8java}
+\input{projet_2Sushis_2src_2IMGRecognitionTest_8java}
+\input{BotSofRetapage_2src_2Suchi_2Maki_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2Maki_8java}
+\input{projet_2TestSushi_2src_2Suchi_2Maki_8java}
+\input{main_2Manager_8java}
+\input{oldCode_2Manager_8java}
+\input{projet_2Sushis_2src_2Manager_8java}
+\input{BotSofRetapage_2src_2Suchi_2Onigiri_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2Onigiri_8java}
+\input{projet_2TestSushi_2src_2Suchi_2Onigiri_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2Prog_8java}
+\input{main_2Prog_8java}
+\input{oldCode_2Prog_8java}
+\input{projet_2Sushis_2src_2Prog_8java}
+\input{main_2ReadZone_8java}
+\input{oldCode_2ReadZone_8java}
+\input{projet_2Sushis_2src_2ReadZone_8java}
+\input{BotSofRetapage_2src_2Suchi_2Recette_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2Recette_8java}
+\input{projet_2TestSushi_2src_2Suchi_2Recette_8java}
+\input{Recon_8java}
+\input{BotSuchis_2TestSuchis_2Pictures_2Reconnaissance_8java}
+\input{main_2Reconnaissance_8java}
+\input{oldCode_2Reconnaissance_8java}
+\input{projet_2Sushis_2src_2Reconnaissance_8java}
+\input{projet_2TestSushi_2src_2Pictures_2Reconnaissance_8java}
+\input{BotSuchis_2TestSuchis_2Pictures_2Reconnaissance__test_8java}
+\input{projet_2TestSushi_2src_2Pictures_2Reconnaissance__test_8java}
+\input{BotSofRetapage_2src_2Suchi_2Salmon_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2Salmon_8java}
+\input{projet_2TestSushi_2src_2Suchi_2Salmon_8java}
+\input{BotSofRetapage_2src_2Suchi_2Screen_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2Screen_8java}
+\input{main_2Screen_8java}
+\input{oldCode_2Screen_8java}
+\input{projet_2Sushis_2src_2Screen_8java}
+\input{projet_2TestSushi_2src_2Suchi_2Screen_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2ScreenCaptureRectangle_8java}
+\input{oldCode_2ScreenCaptureRectangle_8java}
+\input{projet_2TestSushi_2src_2Suchi_2ScreenCaptureRectangle_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2ScreenMouse_8java}
+\input{projet_2TestSushi_2src_2Suchi_2ScreenMouse_8java}
+\input{SearchRatio_8java}
+\input{main_2Service_8java}
+\input{oldCode_2Service_8java}
+\input{BotSofRetapage_2src_2Suchi_2ShrimpSh_8java}
+\input{projet_2TestSushi_2src_2Suchi_2ShrimpSh_8java}
+\input{Stop_8java}
+\input{TestRec_8java}
+\input{TestRecTest_8java}
+\input{BotSuchis_2TestSuchis_2Suchi_2ToolBox_8java}
+\input{main_2ToolBox_8java}
+\input{oldCode_2ToolBox_8java}
+\input{projet_2Sushis_2src_2ToolBox_8java}
+\input{Toolbox_8java}
+\input{main_2Zone_8java}
+\input{oldCode_2Zone_8java}
+\input{projet_2Sushis_2src_2Zone_8java}
+%--- End generated contents ---
+
+% Index
+\newpage
+\phantomsection
+\clearemptydoublepage
+\addcontentsline{toc}{section}{Index}
+\printindex
+
+\end{document}

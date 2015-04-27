@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['pictures',['Pictures',['../namespaceTestSushi_1_1src_1_1Pictures.html',1,'TestSushi::src']]],
+  ['src',['src',['../namespaceTestSushi_1_1src.html',1,'TestSushi']]],
+  ['suchi',['Suchi',['../namespaceTestSushi_1_1src_1_1Suchi.html',1,'TestSushi::src']]],
+  ['terminate',['terminate',['../classToolBox.html#a4a4a941d9d6b7892fab6299754098d16',1,'ToolBox']]],
+  ['test',['test',['../classSuchi_1_1TestRecTest.html#a7e1ff06d6c4296a2b9fe20682c9bb42e',1,'Suchi.TestRecTest.test()'],['../classmain_1_1IATest.html#a1a855c8a3bcca844bc8adfe44927d4e7',1,'main.IATest.test()'],['../classmain_1_1IMGRecognitionTest.html#a4c2f28130c955aade676f31f93a5dae8',1,'main.IMGRecognitionTest.test()'],['../classIMGRecognitionTest.html#a5ead096d519c71a800ef6924a74f6bfb',1,'IMGRecognitionTest.test()']]],
+  ['testeq',['testEq',['../classPictures_1_1Recon.html#a5900d9a17fee84f9bbeaa3118c9fcc80',1,'Pictures.Recon.testEq()'],['../classSuchi_1_1TestRec.html#acd12184a487bee6f847723de48d09492',1,'Suchi.TestRec.testEq()'],['../classPictures_1_1Reconnaissance.html#aaa10f9e195c2a51600c61b4b2f2c11cf',1,'Pictures.Reconnaissance.testEq()'],['../classmain_1_1Reconnaissance.html#ab0397a5a0d7617d6ef1224ff745577e7',1,'main.Reconnaissance.testEq()'],['../classReconnaissance.html#ab2638900b05e6831d146fe735b68e34e',1,'Reconnaissance.testEq()'],['../classSushis_1_1src_1_1Reconnaissance.html#ab025572e07d0c6aa23355509e2767c81',1,'Sushis.src.Reconnaissance.testEq()'],['../classPictures_1_1Reconnaissance.html#aaa10f9e195c2a51600c61b4b2f2c11cf',1,'Pictures.Reconnaissance.testEq()']]],
+  ['testrec',['TestRec',['../classSuchi_1_1TestRec.html',1,'Suchi']]],
+  ['testrec_2ejava',['TestRec.java',['../TestRec_8java.html',1,'']]],
+  ['testrectest',['TestRecTest',['../classSuchi_1_1TestRecTest.html',1,'Suchi']]],
+  ['testrectest_2ejava',['TestRecTest.java',['../TestRecTest_8java.html',1,'']]],
+  ['testsushi',['TestSushi',['../namespaceTestSushi.html',1,'']]],
+  ['time',['time',['../classSuchi_1_1California.html#aaa8bb7f8291c62319446ba91241ba161',1,'Suchi.California.time()'],['../classSuchi_1_1Maki.html#a45795f51f5e5e49a3dd2c92428e0652c',1,'Suchi.Maki.time()'],['../classSuchi_1_1Onigiri.html#a5b8da19f340d4f7e1909f002e12af16e',1,'Suchi.Onigiri.time()'],['../classSuchi_1_1Recette.html#afcb40505dcb70462ad370a2231f74539',1,'Suchi.Recette.time()'],['../classSuchi_1_1Salmon.html#ae20cc48a24b313ef4d32ea6da5257128',1,'Suchi.Salmon.time()'],['../classTestSushi_1_1src_1_1Suchi_1_1Recette.html#a2c78759553661a7e4b01d4ac1212ec6c',1,'TestSushi.src.Suchi.Recette.time()']]],
+  ['timetapis',['timeTapis',['../classTestSushi_1_1src_1_1Suchi_1_1Recette.html#a7db8ec6383e36487bc7ca0490edd0b4a',1,'TestSushi::src::Suchi::Recette']]],
+  ['todo',['toDo',['../classSuchi_1_1Client.html#ad8f1efef85f217db94de5bfb30ff6a60',1,'Suchi::Client']]],
+  ['toolbox',['ToolBox',['../classmain_1_1ToolBox.html',1,'main']]],
+  ['toolbox',['ToolBox',['../classSuchi_1_1ToolBox.html',1,'Suchi.ToolBox'],['../classSuchi_1_1Toolbox.html',1,'Suchi.Toolbox']]],
+  ['toolbox',['ToolBox',['../classSushis_1_1src_1_1ToolBox.html',1,'Sushis::src']]],
+  ['toolbox',['ToolBox',['../classToolBox.html',1,'ToolBox'],['../classSuchi_1_1ToolBox.html#a66f7f53a5ec9a2def49bfd2a52ecab57',1,'Suchi.ToolBox.ToolBox()'],['../classmain_1_1ToolBox.html#a7ef79130c6e72332560554afde3a9921',1,'main.ToolBox.ToolBox()'],['../classmain_1_1ToolBox.html#a8e76d68f8ca56cd24de23af01ae17a09',1,'main.ToolBox.ToolBox(int largeur, int longeur)'],['../classToolBox.html#af5af1824e66f1864834b2e7f4460572f',1,'ToolBox.ToolBox()'],['../classToolBox.html#a15b310eada2bb4adcc73a641a67b8d49',1,'ToolBox.ToolBox(int largeur, int longeur)'],['../classSushis_1_1src_1_1ToolBox.html#af533ef03ee45e6e524652341af2e7eda',1,'Sushis.src.ToolBox.ToolBox()'],['../classSushis_1_1src_1_1ToolBox.html#aa26d4e4aac3026dad8b6d2113d5a1df3',1,'Sushis.src.ToolBox.ToolBox(int largeur, int longeur)'],['../classSuchi_1_1Toolbox.html#a126737219de21348250cf1d133c45482',1,'Suchi.Toolbox.Toolbox()']]],
+  ['toolbox_2ejava',['Toolbox.java',['../Toolbox_8java.html',1,'']]],
+  ['topping',['Topping',['../classSuchi_1_1Recette.html#a4810b2254c050209fba27757066668b3',1,'Suchi.Recette.Topping()'],['../classTestSushi_1_1src_1_1Suchi_1_1Recette.html#ab7575f64998864f6b053859c18380f58',1,'TestSushi.src.Suchi.Recette.Topping()']]],
+  ['translate',['translate',['../classSuchi_1_1Dot.html#ae154c81b917dba659ec91bf3ce3ac7be',1,'Suchi.Dot.translate()'],['../classmain_1_1Dot.html#ae490ac692da44edde94754ead7660aff',1,'main.Dot.translate()'],['../classDot.html#a06923e301e9bbf182833b1c4914f8d7d',1,'Dot.translate()']]],
+  ['txt',['txt',['../classSuchi_1_1ToolBox.html#a16b8d8a2117c1d472884f6246bc255bb',1,'Suchi.ToolBox.txt()'],['../classmain_1_1ToolBox.html#a70a0516fb7bc406c12be2414b5bbb569',1,'main.ToolBox.txt()'],['../classToolBox.html#a0872e43afdb03a8ea032ba9091a741c0',1,'ToolBox.txt()'],['../classSushis_1_1src_1_1ToolBox.html#ad0a7dea17f66a3ce47f294007f85ade8',1,'Sushis.src.ToolBox.txt()']]]
+];

@@ -1,6 +1,0 @@
-<map id="IA" name="IA">
-<area shape="rect" id="node9" href="$classManager.html" title="{Manager\n|&#45; cash\l&#45; cashPile\l&#45; bar\l|+ Manager()\l+ CheckBar()\l+ buyComponent()\l&#45; makeSushi()\l}" alt="" coords="627,877,757,1028"/>
-<area shape="rect" id="node2" href="$classToolBox.html" title="{ToolBox\n|~ terminate\l&#45; w\l&#45; h\l&#45; countScreen\l&#45; serialVersionUID\l|+ ToolBox()\l+ ToolBox()\l+ Capture()\l+ CaptureGame()\l+ Launch()\l+ Run()\l+ Serve()\l+ actionPerformed()\l+ clicBar()\l}" alt="" coords="341,1179,478,1432"/>
-<area shape="rect" id="node13" href="$classReadZone.html" title="{ReadZone\n||+ ReadZone()\l+ addZone()\l+ getZones()\l}" alt="" coords="893,370,995,477"/>
-<area shape="rect" id="node15" href="$classZone.html" title="{Zone\n||+ Zone()\l+ addZone()\l+ addZone()\l+ getZonesTable()\l}" alt="" coords="1040,363,1168,484"/>
-</map>

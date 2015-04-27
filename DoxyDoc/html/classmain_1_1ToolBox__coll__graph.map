@@ -1,7 +1,0 @@
-<map id="main.ToolBox" name="main.ToolBox">
-<area shape="rect" id="node10" href="$classmain_1_1IA.html" title="{main.IA\n|+ xOr\l+ yOr\l&#45; width\l&#45; height\l&#45; serialVersionUID\l&#45; spriteCount\l|+ IA()\l+ click()\l+ initiateGame()\l+ getZone()\l+ saveSprites()\l+ loadSprites()\l+ getSushi()\l}" alt="" coords="497,660,627,899"/>
-<area shape="rect" id="node7" href="$classmain_1_1Manager.html" title="{main.Manager\n|&#45; cash\l&#45; cashPile\l&#45; bar\l|+ Manager()\l+ CheckBar()\l&#45; makeSushi()\l}" alt="" coords="399,1035,503,1171"/>
-<area shape="rect" id="node8" href="$classmain_1_1Service.html" title="{main.Service\n||+ Service()\l+ run()\l}" alt="" coords="227,733,326,825"/>
-<area shape="rect" id="node13" href="$classmain_1_1Zone.html" title="{main.Zone\n||+ Zone()\l+ addZone()\l+ addZone()\l+ getZonesTable()\l}" alt="" coords="809,425,937,546"/>
-<area shape="rect" id="node15" href="$classmain_1_1ReadZone.html" title="{main.ReadZone\n||+ ReadZone()\l+ addZone()\l+ getZones()\l}" alt="" coords="505,432,619,539"/>
-</map>

@@ -6,14 +6,19 @@
 |____/ \__,_|___/_| |_|_|____/ \___/ \__|
 ```
 
-# Mini Projet 2015 Université Paris-Sud
+# Mini Projet 2015 
+Univesité Paris-Sud
 
 Equipe:
 
 Sofiane Adjiri
+
 Dimitri Belopopsky
+
 Raphaël Cohen
+
 Antoine Dolant
+
 
 ##Sujet:
 

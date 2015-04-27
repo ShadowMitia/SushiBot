@@ -4,8 +4,8 @@ import Pictures.Recon;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.Date;
+
 
 public class Client  {
 	private BufferedImage[] customer ; 
@@ -18,6 +18,10 @@ public class Client  {
 	private long clearTime = 0;
 	private long oldClearTime;
 
+	/**
+	 * Constructeur
+	 * @throws Exception
+	 */
 	Client() throws Exception{
 
 		oldClearTime = System.currentTimeMillis();
@@ -41,21 +45,33 @@ public class Client  {
 		
 
 	}
-	
 
+
+	/**
+	 * La méthode update est appellé en permanence et permet de détecter les nouvelles commandes
+	 * @throws HeadlessException
+	 * @throws AWTException
+	 */
 	public void update() throws HeadlessException, AWTException{
 		
 		this.customer = new BufferedImage[6];
 		this.customer = new Ia().loadCommandes();
 
+		/*
 		try {
 			ia.saveSprites();
 		} catch (IOException e){
 
 		}
-
+		*/
 	}
-	
+
+	/**
+	 * Méthode qui permet de créer le sushi demandé et mettre à jour les informations sur les quantités
+	 * d'ingrédients
+	 * @param s String le sushi à réaliser
+	 * @throws Exception
+	 */
 	private void makeSushi(String s) throws Exception{
 		
 		if(s == "Onigiri") {
@@ -122,8 +138,12 @@ public class Client  {
 		Thread.sleep(1400);
 		
 	}
-	
 
+
+	/**
+	 *
+	 * @throws Exception
+	 */
 	public void check() throws Exception{
 		
 		if(first){ 
